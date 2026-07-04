@@ -8,6 +8,20 @@ build (PySAMP pins 3.10.4 for the same reason).
 
 ## Build the native component
 
+### Quick build (Linux, gcc)
+
+With a 32-bit Python installed (Fedora: `sudo dnf install python3-devel.i686`;
+Debian/Ubuntu: a 32-bit Python build), run:
+
+```sh
+./native/build.sh          # -> dist/components/pyopenmp.so (32-bit)
+```
+
+`PYVER` selects the Python version (defaults to the running one), e.g.
+`PYVER=3.10 ./native/build.sh`.
+
+### CMake (cross-platform)
+
 Point CMake at your 32-bit Python:
 
 ```sh
