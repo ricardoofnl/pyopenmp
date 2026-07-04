@@ -23,7 +23,7 @@ jobs:
         run: |
           docker run --rm -v "$PWD":/src -w /src \
             "i386/python:${{ inputs.python_version }}-slim" \
-            bash -c "apt-get update && apt-get install -y --no-install-recommends gcc file && ./native/build.sh"
+            bash -c "apt-get update && apt-get install -y --no-install-recommends gcc libc6-dev file && ./native/build.sh"
       - uses: actions/upload-artifact@v4
         with:
           name: linux
