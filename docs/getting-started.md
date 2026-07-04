@@ -3,9 +3,10 @@
 ## 1. Prerequisites
 
 - **32-bit Python 3.x** (open.mp is 32-bit, so the embedded interpreter must be too).
-- **CMake** and a **C compiler** (to build the native component once).
 - An **open.mp server** (download from [open.mp](https://open.mp)); it already ships
   the `$CAPI` component that pyopenmp calls into.
+- **CMake** and a **C compiler** — only if you build the native component yourself
+  (option B below).
 
 ## 2. Write a gamemode
 
@@ -50,7 +51,29 @@ Import other files as normal Python modules under the `gamemodes` package. For
 `__init__.py` (it can be empty). Relative imports work too, e.g.
 `from .core import core` inside `gamemodes/__init__.py`.
 
-## 3. Build the native component
+## 3. Get the runtime (a `components/` folder)
+
+### Option A — download a prebuilt release (recommended)
+
+Grab the latest `pyopenmp-<version>.zip` from the
+[latest release](https://github.com/ricardoofnl/pyopenmp/releases/latest). It
+already contains a ready `components/` folder with `pyopenmp_native.so`,
+`pyopenmp_native.dll`, and the `pyopenmp/` runtime package. Unzip it and copy
+that folder's contents straight into your server's `components/`:
+
+```sh
+gh release download --repo ricardoofnl/pyopenmp --pattern 'pyopenmp-*.zip'
+unzip pyopenmp-*.zip
+cp -r components/* /path/to/server/Server/components/
+```
+
+No GitHub CLI? Download the zip from the releases page in your browser and copy
+the unzipped `components/` files into `Server/components/` the same way.
+
+Pick the release whose Python version matches your 32-bit Python (or run the
+**Release** workflow with your own `python_version`).
+
+### Option B — build it yourself
 
 The one native piece embeds CPython. Build it once (see
 [`testing.md`](testing.md) for the 32-bit details):
@@ -61,12 +84,15 @@ cmake --build native/build
 ```
 
 This produces `pyopenmp_native.so` (Linux) / `pyopenmp_native.dll` (Windows).
+Put it, plus the `pyopenmp/` runtime package from this repo, into your server's
+`components/` folder.
 
-## 4. Deploy
+## 4. Deploy your gamemode
 
-Put `pyopenmp_native.so` and the `pyopenmp/` runtime package inside the server's
-`components/` folder. Put your `gamemodes/` package at the server root, next to
-`components/`. (The `$CAPI` component is already shipped by the server.)
+The `components/` folder (from step 3) already holds `pyopenmp_native.so` and the
+`pyopenmp/` runtime package. Now put your `gamemodes/` package at the server
+root, next to `components/`. (The `$CAPI` component is already shipped by the
+server.)
 
 The component puts both the server root and `components/` on `sys.path`, so this
 works no matter which directory the server is launched from (including runners

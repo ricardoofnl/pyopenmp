@@ -37,12 +37,20 @@ Every generated native and event is listed in [`GENERATED.md`](GENERATED.md).
 
 ## Releases
 
-CI builds the native component for Linux and Windows on demand. Run the **Build**
-workflow (Actions tab) to build both, or the **Release** workflow with a version
-number to publish a `pyopenmp-<version>.zip`. The zip contains a `components/`
-folder with `pyopenmp_native.so`, `pyopenmp_native.dll`, and the `pyopenmp/`
-runtime package — copy that `components/` content into your server, then add your
-`gamemodes/` package at the server root.
+Download the latest [`pyopenmp-<version>.zip`](https://github.com/ricardoofnl/pyopenmp/releases/latest)
+and copy the `components/` files it contains straight into your server's
+`components/` folder — no build step needed:
+
+```sh
+gh release download --repo ricardoofnl/pyopenmp --pattern 'pyopenmp-*.zip'
+unzip pyopenmp-*.zip
+cp -r components/* /path/to/server/Server/components/
+```
+
+The zip's `components/` holds `pyopenmp_native.so`, `pyopenmp_native.dll`, and the
+`pyopenmp/` runtime package. Then add your `gamemodes/` package at the server
+root. Releases are produced by CI — run the **Release** workflow with a version
+number, or the **Build** workflow to just compile the component.
 
 ## Important: 32-bit Python
 
