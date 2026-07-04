@@ -165,15 +165,17 @@ static void print_diagnostics(void)
         "print('[pyopenmp] has', os.path.join(_r, 'pyopenmp', '_bootstrap.py'), '=', os.path.exists(os.path.join(_r, 'pyopenmp', '_bootstrap.py')), file=sys.stderr)\n");
 }
 
-static void run_bootstrap(void)
+static void* run_bootstrap(void)
 {
+    void* component = NULL;
+
     PyObject* module = PyImport_ImportModule("pyopenmp._bootstrap");
     if (!module)
     {
         fprintf(stderr, "[pyopenmp] failed to import pyopenmp._bootstrap\n");
         print_diagnostics();
         PyErr_Print();
-        return;
+        return NULL;
     }
 
     PyObject* start = PyObject_GetAttrString(module, "start");
@@ -186,6 +188,10 @@ static void run_bootstrap(void)
         }
         else
         {
+            if (result != Py_None)
+            {
+                component = PyLong_AsVoidPtr(result);
+            }
             Py_DECREF(result);
         }
     }
@@ -196,13 +202,14 @@ static void run_bootstrap(void)
 
     Py_XDECREF(start);
     Py_DECREF(module);
+    return component;
 }
 
-PYOPENMP_EXPORT void ComponentEntryPoint(void)
+PYOPENMP_EXPORT void* ComponentEntryPoint(void)
 {
     if (g_started)
     {
-        return;
+        return NULL;
     }
     g_started = 1;
 
@@ -216,6 +223,8 @@ PYOPENMP_EXPORT void ComponentEntryPoint(void)
     promote_python_symbols();
     Py_Initialize();
     setup_paths(root);
-    run_bootstrap();
+    void* component = run_bootstrap();
     g_saved = PyEval_SaveThread();
+    fprintf(stderr, "[pyopenmp] entrypoint done (component=%p)\n", component);
+    return component;
 }
