@@ -153,18 +153,6 @@ static void setup_paths(const char* root)
         "(_cwd in sys.path) or sys.path.insert(0, _cwd)\n");
 }
 
-static void print_diagnostics(void)
-{
-    PyRun_SimpleString(
-        "import os, sys\n"
-        "_r = os.environ.get('PYOPENMP_ROOT') or os.getcwd()\n"
-        "print('[pyopenmp] cwd =', os.getcwd(), file=sys.stderr)\n"
-        "print('[pyopenmp] PYOPENMP_ROOT =', os.environ.get('PYOPENMP_ROOT'), file=sys.stderr)\n"
-        "print('[pyopenmp] sys.path[:6] =', sys.path[:6], file=sys.stderr)\n"
-        "print('[pyopenmp] has', os.path.join(_r, 'pyopenmp', '__init__.py'), '=', os.path.exists(os.path.join(_r, 'pyopenmp', '__init__.py')), file=sys.stderr)\n"
-        "print('[pyopenmp] has', os.path.join(_r, 'pyopenmp', '_bootstrap.py'), '=', os.path.exists(os.path.join(_r, 'pyopenmp', '_bootstrap.py')), file=sys.stderr)\n");
-}
-
 static void* run_bootstrap(void)
 {
     void* component = NULL;
@@ -173,7 +161,6 @@ static void* run_bootstrap(void)
     if (!module)
     {
         fprintf(stderr, "[pyopenmp] failed to import pyopenmp._bootstrap\n");
-        print_diagnostics();
         PyErr_Print();
         return NULL;
     }
@@ -213,11 +200,8 @@ PYOPENMP_EXPORT void* ComponentEntryPoint(void)
     }
     g_started = 1;
 
-    fprintf(stderr, "[pyopenmp] component starting\n");
-
     char root[4096];
     server_root(root, sizeof(root));
-    fprintf(stderr, "[pyopenmp] detected server root = %s\n", root[0] ? root : "(none)");
     export_root(root);
 
     promote_python_symbols();
@@ -225,6 +209,5 @@ PYOPENMP_EXPORT void* ComponentEntryPoint(void)
     setup_paths(root);
     void* component = run_bootstrap();
     g_saved = PyEval_SaveThread();
-    fprintf(stderr, "[pyopenmp] entrypoint done (component=%p)\n", component);
     return component;
 }
