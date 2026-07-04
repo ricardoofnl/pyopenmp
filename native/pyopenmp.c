@@ -13,8 +13,32 @@
 #define PATH_SEP '/'
 #endif
 
+#define PYOPENMP_STR_(x) #x
+#define PYOPENMP_STR(x) PYOPENMP_STR_(x)
+#define PYOPENMP_PYVER \
+    PYOPENMP_STR(PY_MAJOR_VERSION) "." PYOPENMP_STR(PY_MINOR_VERSION)
+
 static int g_started = 0;
 static PyThreadState* g_saved = NULL;
+
+static void promote_python_symbols(void)
+{
+#if !defined(_WIN32)
+    const char* names[] = {
+        "libpython" PYOPENMP_PYVER ".so.1.0",
+        "libpython" PYOPENMP_PYVER ".so",
+        NULL,
+    };
+    for (int i = 0; names[i]; i++)
+    {
+        if (dlopen(names[i], RTLD_NOW | RTLD_GLOBAL))
+        {
+            return;
+        }
+    }
+    fprintf(stderr, "[pyopenmp] warning: could not promote libpython symbols\n");
+#endif
+}
 
 static void self_path(char* out, size_t n)
 {
@@ -189,6 +213,7 @@ PYOPENMP_EXPORT void ComponentEntryPoint(void)
     fprintf(stderr, "[pyopenmp] detected server root = %s\n", root[0] ? root : "(none)");
     export_root(root);
 
+    promote_python_symbols();
     Py_Initialize();
     setup_paths(root);
     run_bootstrap();

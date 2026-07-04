@@ -69,8 +69,11 @@ cd /path/to/server/Server
 
 ## Troubleshooting
 
-- **`ModuleNotFoundError: pyopenmp`** — the `pyopenmp/` folder is not in the
-  server root, or the server was not started from its root directory.
+- **`ModuleNotFoundError: pyopenmp` / `pyopenmp._bootstrap`** — the `pyopenmp/`
+  folder (and `gamemode.py`) must sit next to `pyopenmp.so` inside `components/`.
+- **`undefined symbol: PyExc_...` when importing `ctypes`** — Python extension
+  modules could not resolve libpython. The component loads libpython with
+  `RTLD_GLOBAL` to avoid this; make sure you are running the latest `pyopenmp.so`.
 - **Interpreter/segfault on load** — architecture mismatch. The component,
   its embedded Python, and `$CAPI` must all be 32-bit.
 - **Python cannot find its standard library** — set `PYTHONHOME` to your 32-bit
