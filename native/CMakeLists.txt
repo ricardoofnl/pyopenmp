@@ -4,5 +4,5 @@ project(pyopenmp C)
 find_package(Python3 REQUIRED COMPONENTS Development.Embed)
 
 add_library(pyopenmp SHARED pyopenmp.c)
-set_target_properties(pyopenmp PROPERTIES PREFIX "")
+set_target_properties(pyopenmp PROPERTIES PREFIX "" OUTPUT_NAME "pyopenmp_native")
 target_link_libraries(pyopenmp PRIVATE Python3::Python)

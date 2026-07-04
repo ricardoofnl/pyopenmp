@@ -44,13 +44,13 @@ cmake -S native -B native/build
 cmake --build native/build
 ```
 
-This produces `pyopenmp.so` (Linux) / `pyopenmp.dll` (Windows).
+This produces `pyopenmp_native.so` (Linux) / `pyopenmp_native.dll` (Windows).
 
 ## 4. Deploy
 
 Put all three into your server's `components/` folder:
 
-- `pyopenmp.so` (the component you built)
+- `pyopenmp_native.so` (the component you built)
 - the `pyopenmp/` package folder
 - your `gamemode.py`
 

@@ -7,12 +7,12 @@ OUT="${OUT:-$ROOT/dist/components}"
 
 mkdir -p "$OUT"
 
-echo ">> building 32-bit pyopenmp.so against Python $PYVER"
+echo ">> building 32-bit pyopenmp_native.so against Python $PYVER"
 gcc -m32 -shared -fPIC -Wall \
   -I"/usr/include/python${PYVER}" \
   "$ROOT/native/pyopenmp.c" \
   -L/usr/lib -lpython"${PYVER}" \
-  -o "$OUT/pyopenmp.so"
+  -o "$OUT/pyopenmp_native.so"
 
-echo ">> built $OUT/pyopenmp.so"
-file "$OUT/pyopenmp.so"
+echo ">> built $OUT/pyopenmp_native.so"
+file "$OUT/pyopenmp_native.so"

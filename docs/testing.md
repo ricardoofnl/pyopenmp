@@ -14,7 +14,7 @@ With a 32-bit Python installed (Fedora: `sudo dnf install python3-devel.i686`;
 Debian/Ubuntu: a 32-bit Python build), run:
 
 ```sh
-./native/build.sh          # -> dist/components/pyopenmp.so (32-bit)
+./native/build.sh          # -> dist/components/pyopenmp_native.so (32-bit)
 ```
 
 `PYVER` selects the Python version (defaults to the running one), e.g.
@@ -38,7 +38,7 @@ cmake -S native -B native/build -A Win32 -DPython3_ROOT_DIR=C:\Python32
 cmake --build native/build --config Release
 ```
 
-The output is `pyopenmp.so` / `pyopenmp.dll`.
+The output is `pyopenmp_native.so` / `pyopenmp_native.dll`.
 
 ## Deploy
 
@@ -46,13 +46,13 @@ The output is `pyopenmp.so` / `pyopenmp.dll`.
 Server/
 └── components/
     ├── $CAPI.so         (shipped by the server)
-    ├── pyopenmp.so      (the native component you built)
+    ├── pyopenmp_native.so      (the native component you built)
     ├── pyopenmp/        (the Python package from this repo)
     └── gamemode.py      (your gamemode)
 ```
 
 Keep `pyopenmp/` and `gamemode.py` **inside `components/`**, next to
-`pyopenmp.so`. The component adds its own directory to `sys.path`, so this works
+`pyopenmp_native.so`. The component adds its own directory to `sys.path`, so this works
 regardless of which directory the server is launched from (including runners
 like `sampctl`).
 
@@ -70,10 +70,10 @@ cd /path/to/server/Server
 ## Troubleshooting
 
 - **`ModuleNotFoundError: pyopenmp` / `pyopenmp._bootstrap`** — the `pyopenmp/`
-  folder (and `gamemode.py`) must sit next to `pyopenmp.so` inside `components/`.
+  folder (and `gamemode.py`) must sit next to `pyopenmp_native.so` inside `components/`.
 - **`undefined symbol: PyExc_...` when importing `ctypes`** — Python extension
   modules could not resolve libpython. The component loads libpython with
-  `RTLD_GLOBAL` to avoid this; make sure you are running the latest `pyopenmp.so`.
+  `RTLD_GLOBAL` to avoid this; make sure you are running the latest `pyopenmp_native.so`.
 - **Interpreter/segfault on load** — architecture mismatch. The component,
   its embedded Python, and `$CAPI` must all be 32-bit.
 - **Python cannot find its standard library** — set `PYTHONHOME` to your 32-bit
