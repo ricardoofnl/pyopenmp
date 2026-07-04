@@ -1,0 +1,936 @@
+# Generated bindings
+
+Produced by `python tools/codegen.py`.
+
+**Totals:** 768 functions across 22 groups, 91 events.
+
+## Functions
+
+### Actor (22)
+
+- `Actor_ApplyAnimation`: `actor_apply_animation(actor, name, library, delta, loop, lock_x, lock_y, freeze, time)`
+- `Actor_ClearAnimations`: `actor_clear_animations(actor)`
+- `Actor_Create`: `actor_create(model, x, y, z, rot)`
+- `Actor_Destroy`: `actor_destroy(actor)`
+- `Actor_FromID`: `actor_from_id(actorid)`
+- `Actor_GetAnimation`: `actor_get_animation(actor)`
+- `Actor_GetFacingAngle`: `actor_get_facing_angle(actor)`
+- `Actor_GetHealth`: `actor_get_health(actor)`
+- `Actor_GetID`: `actor_get_id(actor)`
+- `Actor_GetPos`: `actor_get_pos(actor)`
+- `Actor_GetSkin`: `actor_get_skin(actor)`
+- `Actor_GetSpawnInfo`: `actor_get_spawn_info(actor)`
+- `Actor_GetVirtualWorld`: `actor_get_virtual_world(actor)`
+- `Actor_IsInvulnerable`: `actor_is_invulnerable(actor)`
+- `Actor_IsStreamedInFor`: `actor_is_streamed_in_for(actor, player)`
+- `Actor_IsValid`: `actor_is_valid(actor)`
+- `Actor_SetFacingAngle`: `actor_set_facing_angle(actor, angle)`
+- `Actor_SetHealth`: `actor_set_health(actor, hp)`
+- `Actor_SetInvulnerable`: `actor_set_invulnerable(actor, toggle)`
+- `Actor_SetPos`: `actor_set_pos(actor, x, y, z)`
+- `Actor_SetSkin`: `actor_set_skin(actor, skin)`
+- `Actor_SetVirtualWorld`: `actor_set_virtual_world(actor, vw)`
+
+### All (4)
+
+- `All_CreateExplosion`: `all_create_explosion(x, y, z, type, radius)`
+- `All_EnableStuntBonus`: `all_enable_stunt_bonus(enable)`
+- `All_SendClientMessage`: `all_send_client_message(color, text)`
+- `All_SendDeathMessage`: `all_send_death_message(killer, killee, weapon)`
+
+### Checkpoint (5)
+
+- `Checkpoint_Disable`: `checkpoint_disable(player)`
+- `Checkpoint_Get`: `checkpoint_get(player)`
+- `Checkpoint_IsActive`: `checkpoint_is_active(player)`
+- `Checkpoint_IsPlayerIn`: `checkpoint_is_player_in(player)`
+- `Checkpoint_Set`: `checkpoint_set(player, x, y, z, radius)`
+
+### Class (6)
+
+- `Class_Add`: `class_add(team, skin, x, y, z, angle, weapon1, ammo1, weapon2, ammo2, weapon3, ammo3)`
+- `Class_Count`: `class_count()`
+- `Class_Edit`: `class_edit(classptr, teamid, skin, x, y, z, angle, weapon1, ammo1, weapon2, ammo2, weapon3, ammo3)`
+- `Class_FromID`: `class_from_id(classid)`
+- `Class_GetData`: `class_get_data(classptr)`
+- `Class_GetID`: `class_get_id(cls)`
+
+### Config (4)
+
+- `Config_GetAsBool`: `config_get_as_bool(cvar)`
+- `Config_GetAsFloat`: `config_get_as_float(cvar)`
+- `Config_GetAsInt`: `config_get_as_int(cvar)`
+- `Config_GetAsString`: `config_get_as_string(cvar)`
+
+### Core (46)
+
+- `Core_AddRule`: `core_add_rule(name, value)`
+- `Core_AllowAdminTeleport`: `core_allow_admin_teleport(allow)`
+- `Core_AllowInteriorWeapons`: `core_allow_interior_weapons(allow)`
+- `Core_AllowNickNameCharacter`: `core_allow_nick_name_character(character, allow)`
+- `Core_AreAllAnimationsEnabled`: `core_are_all_animations_enabled()`
+- `Core_AreInteriorWeaponsAllowed`: `core_are_interior_weapons_allowed()`
+- `Core_BlockIpAddress`: `core_block_ip_address(ip_address, time_ms)`
+- `Core_ClearBanList`: `core_clear_ban_list()`
+- `Core_DisableEntryExitMarkers`: `core_disable_entry_exit_markers()`
+- `Core_DisableNameTagsLOS`: `core_disable_name_tags_los()`
+- `Core_EnableAllAnimations`: `core_enable_all_animations(allow)`
+- `Core_EnableZoneNames`: `core_enable_zone_names(enable)`
+- `Core_GameMode_SetText`: `core_game_mode_set_text(string)`
+- `Core_GetGravity`: `core_get_gravity()`
+- `Core_GetWeaponName`: `core_get_weapon_name(weaponid)`
+- `Core_GetWeaponSlot`: `core_get_weapon_slot(weapon)`
+- `Core_GetWeather`: `core_get_weather()`
+- `Core_GetWorldTime`: `core_get_world_time()`
+- `Core_HideGameTextForAll`: `core_hide_game_text_for_all(style)`
+- `Core_IsAdminTeleportAllowed`: `core_is_admin_teleport_allowed()`
+- `Core_IsAnimationLibraryValid`: `core_is_animation_library_valid(name)`
+- `Core_IsChatTextReplacementToggled`: `core_is_chat_text_replacement_toggled()`
+- `Core_IsIpAddressBanned`: `core_is_ip_address_banned(ip)`
+- `Core_IsNickNameCharacterAllowed`: `core_is_nick_name_character_allowed(character)`
+- `Core_IsNickNameValid`: `core_is_nick_name_valid(name)`
+- `Core_IsValidRule`: `core_is_valid_rule(name)`
+- `Core_Log`: `core_log(text)`
+- `Core_MaxPlayers`: `core_max_players()`
+- `Core_NetworkStats`: `core_network_stats()`
+- `Core_RemoveRule`: `core_remove_rule(name)`
+- `Core_SendRconCommand`: `core_send_rcon_command(command)`
+- `Core_ServerTickRate`: `core_server_tick_rate()`
+- `Core_SetChatRadius`: `core_set_chat_radius(global_chat_radius)`
+- `Core_SetDeathDropAmount`: `core_set_death_drop_amount(amount)`
+- `Core_SetGravity`: `core_set_gravity(gravity)`
+- `Core_SetMarkerRadius`: `core_set_marker_radius(player_marker_radius)`
+- `Core_SetNameTagsDrawDistance`: `core_set_name_tags_draw_distance(distance)`
+- `Core_SetWeather`: `core_set_weather(weatherid)`
+- `Core_SetWorldTime`: `core_set_world_time(hour)`
+- `Core_ShowGameTextForAll`: `core_show_game_text_for_all(msg, time, style)`
+- `Core_ShowNameTags`: `core_show_name_tags(show)`
+- `Core_ShowPlayerMarkers`: `core_show_player_markers(mode)`
+- `Core_TickCount`: `core_tick_count()`
+- `Core_ToggleChatTextReplacement`: `core_toggle_chat_text_replacement(enable)`
+- `Core_UnBlockIpAddress`: `core_un_block_ip_address(ip_address)`
+- `Core_UsePedAnims`: `core_use_ped_anims()`
+
+### CustomModel (7)
+
+- `CustomModel_AddCharModel`: `custom_model_add_char_model(baseid, newid, dff, texture_library)`
+- `CustomModel_AddSimpleModel`: `custom_model_add_simple_model(virtual_world, baseid, newid, dff, texture_library)`
+- `CustomModel_AddSimpleModelTimed`: `custom_model_add_simple_model_timed(virtual_world, baseid, newid, dff, texture_library, time_on, time_off)`
+- `CustomModel_FindModelFileNameFromCRC`: `custom_model_find_model_file_name_from_crc(crc)`
+- `CustomModel_GetPath`: `custom_model_get_path(model_id)`
+- `CustomModel_IsValid`: `custom_model_is_valid(model_id)`
+- `CustomModel_RedirectDownload`: `custom_model_redirect_download(player, url)`
+
+### Dialog (2)
+
+- `Dialog_Hide`: `dialog_hide(player)`
+- `Dialog_Show`: `dialog_show(player, dialog, style, title, body, button1, button2)`
+
+### GangZone (20)
+
+- `GangZone_Create`: `gang_zone_create(minx, miny, maxx, maxy)`
+- `GangZone_Destroy`: `gang_zone_destroy(gangzone)`
+- `GangZone_FlashForAll`: `gang_zone_flash_for_all(gangzone, color)`
+- `GangZone_FlashForPlayer`: `gang_zone_flash_for_player(player, gangzone, color)`
+- `GangZone_FromID`: `gang_zone_from_id(gangzoneid)`
+- `GangZone_GetColorForPlayer`: `gang_zone_get_color_for_player(player, gangzone)`
+- `GangZone_GetFlashColorForPlayer`: `gang_zone_get_flash_color_for_player(player, gangzone)`
+- `GangZone_GetID`: `gang_zone_get_id(gangzone)`
+- `GangZone_GetPos`: `gang_zone_get_pos(gangzone)`
+- `GangZone_HideForAll`: `gang_zone_hide_for_all(gangzone)`
+- `GangZone_HideForPlayer`: `gang_zone_hide_for_player(player, gangzone)`
+- `GangZone_IsFlashingForPlayer`: `gang_zone_is_flashing_for_player(player, gangzone)`
+- `GangZone_IsPlayerIn`: `gang_zone_is_player_in(player, gangzone)`
+- `GangZone_IsValid`: `gang_zone_is_valid(gangzone)`
+- `GangZone_IsVisibleForPlayer`: `gang_zone_is_visible_for_player(player, gangzone)`
+- `GangZone_ShowForAll`: `gang_zone_show_for_all(gangzone, color)`
+- `GangZone_ShowForPlayer`: `gang_zone_show_for_player(player, gangzone, color)`
+- `GangZone_StopFlashForAll`: `gang_zone_stop_flash_for_all(gangzone)`
+- `GangZone_StopFlashForPlayer`: `gang_zone_stop_flash_for_player(player, gangzone)`
+- `GangZone_UseCheck`: `gang_zone_use_check(gangzone, enable)`
+
+### Menu (19)
+
+- `Menu_AddItem`: `menu_add_item(menu, column, text)`
+- `Menu_Create`: `menu_create(title, columns, x, y, column1_width, column2_width)`
+- `Menu_Destroy`: `menu_destroy(menu)`
+- `Menu_Disable`: `menu_disable(menu)`
+- `Menu_DisableRow`: `menu_disable_row(menu, row)`
+- `Menu_FromID`: `menu_from_id(menuid)`
+- `Menu_GetColumnHeader`: `menu_get_column_header(menu, column)`
+- `Menu_GetColumnWidth`: `menu_get_column_width(menu)`
+- `Menu_GetColumns`: `menu_get_columns(menu)`
+- `Menu_GetID`: `menu_get_id(menu)`
+- `Menu_GetItem`: `menu_get_item(menu, column, row)`
+- `Menu_GetItems`: `menu_get_items(menu, column)`
+- `Menu_GetPos`: `menu_get_pos(menu)`
+- `Menu_HideForPlayer`: `menu_hide_for_player(menu, player)`
+- `Menu_IsDisabled`: `menu_is_disabled(menu)`
+- `Menu_IsRowDisabled`: `menu_is_row_disabled(menu, row)`
+- `Menu_IsValid`: `menu_is_valid(menu)`
+- `Menu_SetColumnHeader`: `menu_set_column_header(menu, column, header_title)`
+- `Menu_ShowForPlayer`: `menu_show_for_player(menu, player)`
+
+### NPC (149)
+
+- `NPC_AddPointToPath`: `npc_add_point_to_path(path_id, x, y, z, stop_range)`
+- `NPC_AimAt`: `npc_aim_at(npc, x, y, z, shoot, shoot_delay, update_angle, offset_from_x, offset_from_y, offset_from_z, check_in_between_flags)`
+- `NPC_AimAtPlayer`: `npc_aim_at_player(npc, at_player, shoot, shoot_delay, update_angle, offset_x, offset_y, offset_z, offset_from_x, offset_from_y, offset_from_z, check_in_between_flags)`
+- `NPC_ApplyAnimation`: `npc_apply_animation(npc, animlib, animname, delta, loop, lock_x, lock_y, freeze, time)`
+- `NPC_ChangeNode`: `npc_change_node(npc, node_id, link_id)`
+- `NPC_ClearAnimations`: `npc_clear_animations(npc)`
+- `NPC_ClearPath`: `npc_clear_path(path_id)`
+- `NPC_CloseNode`: `npc_close_node(node_id)`
+- `NPC_Connect`: `npc_connect(name, script)`
+- `NPC_Create`: `npc_create(name)`
+- `NPC_CreatePath`: `npc_create_path()`
+- `NPC_Destroy`: `npc_destroy(npc)`
+- `NPC_DestroyAllPath`: `npc_destroy_all_path()`
+- `NPC_DestroyPath`: `npc_destroy_path(path_id)`
+- `NPC_EnableInfiniteAmmo`: `npc_enable_infinite_ammo(npc, enable)`
+- `NPC_EnableReloading`: `npc_enable_reloading(npc, enable)`
+- `NPC_EnterVehicle`: `npc_enter_vehicle(npc, vehicle, seat_id, move_type)`
+- `NPC_ExitVehicle`: `npc_exit_vehicle(npc)`
+- `NPC_FromID`: `npc_from_id(npcid)`
+- `NPC_GetAll`: `npc_get_all(max_np_cs)`
+- `NPC_GetAmmo`: `npc_get_ammo(npc)`
+- `NPC_GetAmmoInClip`: `npc_get_ammo_in_clip(npc)`
+- `NPC_GetAnimation`: `npc_get_animation(npc)`
+- `NPC_GetArmour`: `npc_get_armour(npc)`
+- `NPC_GetCurrentPathPointIndex`: `npc_get_current_path_point_index(npc)`
+- `NPC_GetEnteringVehicle`: `npc_get_entering_vehicle(npc)`
+- `NPC_GetEnteringVehicleID`: `npc_get_entering_vehicle_id(npc)`
+- `NPC_GetEnteringVehicleSeat`: `npc_get_entering_vehicle_seat(npc)`
+- `NPC_GetFacingAngle`: `npc_get_facing_angle(npc)`
+- `NPC_GetFightingStyle`: `npc_get_fighting_style(npc)`
+- `NPC_GetHealth`: `npc_get_health(npc)`
+- `NPC_GetID`: `npc_get_id(npc)`
+- `NPC_GetInterior`: `npc_get_interior(npc)`
+- `NPC_GetKeys`: `npc_get_keys(npc)`
+- `NPC_GetNodeInfo`: `npc_get_node_info(node_id)`
+- `NPC_GetNodePointCount`: `npc_get_node_point_count(node_id)`
+- `NPC_GetNodePointPosition`: `npc_get_node_point_position(node_id)`
+- `NPC_GetNodeType`: `npc_get_node_type(node_id)`
+- `NPC_GetPathCount`: `npc_get_path_count()`
+- `NPC_GetPathPoint`: `npc_get_path_point(path_id, point_index)`
+- `NPC_GetPathPointCount`: `npc_get_path_point_count(path_id)`
+- `NPC_GetPlayer`: `npc_get_player(npc)`
+- `NPC_GetPos`: `npc_get_pos(npc)`
+- `NPC_GetRecordCount`: `npc_get_record_count()`
+- `NPC_GetRot`: `npc_get_rot(npc)`
+- `NPC_GetSpecialAction`: `npc_get_special_action(npc)`
+- `NPC_GetSurfingObject`: `npc_get_surfing_object(npc)`
+- `NPC_GetSurfingOffset`: `npc_get_surfing_offset(npc)`
+- `NPC_GetSurfingPlayerObject`: `npc_get_surfing_player_object(npc)`
+- `NPC_GetSurfingVehicle`: `npc_get_surfing_vehicle(npc)`
+- `NPC_GetVehicle`: `npc_get_vehicle(npc)`
+- `NPC_GetVehicleGearState`: `npc_get_vehicle_gear_state(npc)`
+- `NPC_GetVehicleHealth`: `npc_get_vehicle_health(npc)`
+- `NPC_GetVehicleHydraThrusters`: `npc_get_vehicle_hydra_thrusters(npc)`
+- `NPC_GetVehicleID`: `npc_get_vehicle_id(npc)`
+- `NPC_GetVehicleSeat`: `npc_get_vehicle_seat(npc)`
+- `NPC_GetVehicleTrainSpeed`: `npc_get_vehicle_train_speed(npc)`
+- `NPC_GetVirtualWorld`: `npc_get_virtual_world(npc)`
+- `NPC_GetWeapon`: `npc_get_weapon(npc)`
+- `NPC_GetWeaponAccuracy`: `npc_get_weapon_accuracy(npc, weapon)`
+- `NPC_GetWeaponActualClipSize`: `npc_get_weapon_actual_clip_size(npc, weapon)`
+- `NPC_GetWeaponActualReloadTime`: `npc_get_weapon_actual_reload_time(npc, weapon)`
+- `NPC_GetWeaponClipSize`: `npc_get_weapon_clip_size(npc, weapon)`
+- `NPC_GetWeaponReloadTime`: `npc_get_weapon_reload_time(npc, weapon)`
+- `NPC_GetWeaponShootTime`: `npc_get_weapon_shoot_time(npc, weapon)`
+- `NPC_GetWeaponSkillLevel`: `npc_get_weapon_skill_level(npc, skill)`
+- `NPC_GetWeaponState`: `npc_get_weapon_state(npc)`
+- `NPC_HasPathPointInRange`: `npc_has_path_point_in_range(path_id, x, y, z, radius)`
+- `NPC_IsAiming`: `npc_is_aiming(npc)`
+- `NPC_IsAimingAtPlayer`: `npc_is_aiming_at_player(npc, at_player)`
+- `NPC_IsAnyStreamedIn`: `npc_is_any_streamed_in(npc)`
+- `NPC_IsDead`: `npc_is_dead(npc)`
+- `NPC_IsEnteringVehicle`: `npc_is_entering_vehicle(npc)`
+- `NPC_IsInfiniteAmmoEnabled`: `npc_is_infinite_ammo_enabled(npc)`
+- `NPC_IsInvulnerable`: `npc_is_invulnerable(npc)`
+- `NPC_IsMeleeAttacking`: `npc_is_melee_attacking(npc)`
+- `NPC_IsMoving`: `npc_is_moving(npc)`
+- `NPC_IsNodeOpen`: `npc_is_node_open(node_id)`
+- `NPC_IsPlaybackPaused`: `npc_is_playback_paused(npc)`
+- `NPC_IsPlayingNode`: `npc_is_playing_node(npc)`
+- `NPC_IsPlayingNodePaused`: `npc_is_playing_node_paused(npc)`
+- `NPC_IsPlayingPlayback`: `npc_is_playing_playback(npc)`
+- `NPC_IsReloadEnabled`: `npc_is_reload_enabled(npc)`
+- `NPC_IsReloading`: `npc_is_reloading(npc)`
+- `NPC_IsShooting`: `npc_is_shooting(npc)`
+- `NPC_IsStreamedIn`: `npc_is_streamed_in(npc, player)`
+- `NPC_IsValid`: `npc_is_valid(npc)`
+- `NPC_IsValidPath`: `npc_is_valid_path(path_id)`
+- `NPC_IsValidRecord`: `npc_is_valid_record(record_id)`
+- `NPC_IsVehicleSirenUsed`: `npc_is_vehicle_siren_used(npc)`
+- `NPC_LoadRecord`: `npc_load_record(file_path)`
+- `NPC_MeleeAttack`: `npc_melee_attack(npc, time, secondary_attack)`
+- `NPC_Move`: `npc_move(npc, x, y, z, move_type, move_speed, stop_range)`
+- `NPC_MoveByPath`: `npc_move_by_path(npc, path_id, move_type, move_speed, reverse)`
+- `NPC_MoveToPlayer`: `npc_move_to_player(npc, player, move_type, move_speed, stop_range, pos_check_update_delay, auto_restart)`
+- `NPC_OpenNode`: `npc_open_node(node_id)`
+- `NPC_PausePlayback`: `npc_pause_playback(npc, paused)`
+- `NPC_PausePlayingNode`: `npc_pause_playing_node(npc)`
+- `NPC_PlayNode`: `npc_play_node(npc, node_id, move_type, move_speed, radius, set_angle)`
+- `NPC_PutInVehicle`: `npc_put_in_vehicle(npc, vehicle, seat_id)`
+- `NPC_RemoveFromVehicle`: `npc_remove_from_vehicle(npc)`
+- `NPC_RemovePointFromPath`: `npc_remove_point_from_path(path_id, point_index)`
+- `NPC_ResetAnimation`: `npc_reset_animation(npc)`
+- `NPC_ResetSurfingData`: `npc_reset_surfing_data(npc)`
+- `NPC_Respawn`: `npc_respawn(npc)`
+- `NPC_ResumePlayingNode`: `npc_resume_playing_node(npc)`
+- `NPC_SetAmmo`: `npc_set_ammo(npc, ammo)`
+- `NPC_SetAmmoInClip`: `npc_set_ammo_in_clip(npc, ammo)`
+- `NPC_SetAnimation`: `npc_set_animation(npc, animation_id, delta, loop, lock_x, lock_y, freeze, time)`
+- `NPC_SetArmour`: `npc_set_armour(npc, armour)`
+- `NPC_SetFacingAngle`: `npc_set_facing_angle(npc, angle)`
+- `NPC_SetFightingStyle`: `npc_set_fighting_style(npc, style)`
+- `NPC_SetHealth`: `npc_set_health(npc, health)`
+- `NPC_SetInterior`: `npc_set_interior(npc, interior)`
+- `NPC_SetInvulnerable`: `npc_set_invulnerable(npc, toggle)`
+- `NPC_SetKeys`: `npc_set_keys(npc, up_and_down, left_and_right, keys)`
+- `NPC_SetNodePoint`: `npc_set_node_point(node_id, point_id)`
+- `NPC_SetPos`: `npc_set_pos(npc, x, y, z)`
+- `NPC_SetRot`: `npc_set_rot(npc, rx, ry, rz)`
+- `NPC_SetSkin`: `npc_set_skin(npc, model)`
+- `NPC_SetSpecialAction`: `npc_set_special_action(npc, action)`
+- `NPC_SetSurfingObject`: `npc_set_surfing_object(npc, object)`
+- `NPC_SetSurfingOffset`: `npc_set_surfing_offset(npc, x, y, z)`
+- `NPC_SetSurfingPlayerObject`: `npc_set_surfing_player_object(npc, player, object_id)`
+- `NPC_SetSurfingVehicle`: `npc_set_surfing_vehicle(npc, vehicle)`
+- `NPC_SetVehicleGearState`: `npc_set_vehicle_gear_state(npc, gear_state)`
+- `NPC_SetVehicleHealth`: `npc_set_vehicle_health(npc, health)`
+- `NPC_SetVehicleHydraThrusters`: `npc_set_vehicle_hydra_thrusters(npc, direction)`
+- `NPC_SetVehicleTrainSpeed`: `npc_set_vehicle_train_speed(npc, speed)`
+- `NPC_SetVirtualWorld`: `npc_set_virtual_world(npc, virtual_world)`
+- `NPC_SetWeapon`: `npc_set_weapon(npc, weapon)`
+- `NPC_SetWeaponAccuracy`: `npc_set_weapon_accuracy(npc, weapon, accuracy)`
+- `NPC_SetWeaponClipSize`: `npc_set_weapon_clip_size(npc, weapon, size)`
+- `NPC_SetWeaponReloadTime`: `npc_set_weapon_reload_time(npc, weapon, time)`
+- `NPC_SetWeaponShootTime`: `npc_set_weapon_shoot_time(npc, weapon, time)`
+- `NPC_SetWeaponSkillLevel`: `npc_set_weapon_skill_level(npc, skill, level)`
+- `NPC_Shoot`: `npc_shoot(npc, weapon, hit_id, hit_type, end_x, end_y, end_z, offset_x, offset_y, offset_z, is_hit, check_in_between_flags)`
+- `NPC_Spawn`: `npc_spawn(npc)`
+- `NPC_StartPlayback`: `npc_start_playback(npc, record_name, auto_unload, start_pos_x, start_pos_y, start_pos_z, start_rot_x, start_rot_y, start_rot_z)`
+- `NPC_StartPlaybackEx`: `npc_start_playback_ex(npc, record_id, auto_unload, start_pos_x, start_pos_y, start_pos_z, start_rot_x, start_rot_y, start_rot_z)`
+- `NPC_StopAim`: `npc_stop_aim(npc)`
+- `NPC_StopMeleeAttack`: `npc_stop_melee_attack(npc)`
+- `NPC_StopMove`: `npc_stop_move(npc)`
+- `NPC_StopPlayback`: `npc_stop_playback(npc)`
+- `NPC_StopPlayingNode`: `npc_stop_playing_node(npc)`
+- `NPC_UnloadAllRecords`: `npc_unload_all_records()`
+- `NPC_UnloadRecord`: `npc_unload_record(record_id)`
+- `NPC_UpdateNodePoint`: `npc_update_node_point(npc, point_id)`
+- `NPC_UseVehicleSiren`: `npc_use_vehicle_siren(npc, use)`
+
+### Object (35)
+
+- `Object_AttachToObject`: `object_attach_to_object(object, obj_attached_to, offset_x, offset_y, offset_z, rotation_x, rotation_y, rotation_z, sync_rotation)`
+- `Object_AttachToPlayer`: `object_attach_to_player(object, player, offset_x, offset_y, offset_z, rotation_x, rotation_y, rotation_z)`
+- `Object_AttachToVehicle`: `object_attach_to_vehicle(object, vehicle, offset_x, offset_y, offset_z, rotation_x, rotation_y, rotation_z)`
+- `Object_BeginEditing`: `object_begin_editing(player, object)`
+- `Object_BeginSelecting`: `object_begin_selecting(player)`
+- `Object_Create`: `object_create(modelid, x, y, z, rotation_x, rotation_y, rotation_z, draw_distance)`
+- `Object_Destroy`: `object_destroy(object)`
+- `Object_EndEditing`: `object_end_editing(player)`
+- `Object_FromID`: `object_from_id(objectid)`
+- `Object_GetAttachedData`: `object_get_attached_data(object)`
+- `Object_GetAttachedOffset`: `object_get_attached_offset(object)`
+- `Object_GetDrawDistance`: `object_get_draw_distance(object)`
+- `Object_GetID`: `object_get_id(object)`
+- `Object_GetMaterial`: `object_get_material(object, material_index)`
+- `Object_GetMaterialText`: `object_get_material_text(object, material_index)`
+- `Object_GetModel`: `object_get_model(object)`
+- `Object_GetMoveSpeed`: `object_get_move_speed(object)`
+- `Object_GetMovingTargetPos`: `object_get_moving_target_pos(object)`
+- `Object_GetMovingTargetRot`: `object_get_moving_target_rot(object)`
+- `Object_GetPos`: `object_get_pos(object)`
+- `Object_GetRot`: `object_get_rot(object)`
+- `Object_GetSyncRotation`: `object_get_sync_rotation(object)`
+- `Object_GetType`: `object_get_type(player, objectid)`
+- `Object_IsMaterialSlotUsed`: `object_is_material_slot_used(object, material_index)`
+- `Object_IsMoving`: `object_is_moving(object)`
+- `Object_IsObjectNoCameraCollision`: `object_is_object_no_camera_collision(object)`
+- `Object_IsValid`: `object_is_valid(object)`
+- `Object_Move`: `object_move(object, x, y, z, speed, rotation_x, rotation_y, rotation_z)`
+- `Object_SetDefaultCameraCollision`: `object_set_default_camera_collision(disable)`
+- `Object_SetMaterial`: `object_set_material(object, material_index, model_id, texture_library, texture_name, material_color)`
+- `Object_SetMaterialText`: `object_set_material_text(object, text, material_index, material_size, fontface, fontsize, bold, font_color, background_color, textalignment)`
+- `Object_SetNoCameraCollision`: `object_set_no_camera_collision(object)`
+- `Object_SetPos`: `object_set_pos(object, x, y, z)`
+- `Object_SetRot`: `object_set_rot(object, rotation_x, rotation_y, rotation_z)`
+- `Object_Stop`: `object_stop(object)`
+
+### Pickup (18)
+
+- `Pickup_AddStatic`: `pickup_add_static(model, type, x, y, z, virtual_world)`
+- `Pickup_Create`: `pickup_create(model, type, x, y, z, virtual_world)`
+- `Pickup_Destroy`: `pickup_destroy(pickup)`
+- `Pickup_FromID`: `pickup_from_id(pickupid)`
+- `Pickup_GetID`: `pickup_get_id(pickup)`
+- `Pickup_GetModel`: `pickup_get_model(pickup)`
+- `Pickup_GetPos`: `pickup_get_pos(pickup)`
+- `Pickup_GetType`: `pickup_get_type(pickup)`
+- `Pickup_GetVirtualWorld`: `pickup_get_virtual_world(pickup)`
+- `Pickup_HideForPlayer`: `pickup_hide_for_player(player, pickup)`
+- `Pickup_IsHiddenForPlayer`: `pickup_is_hidden_for_player(player, pickup)`
+- `Pickup_IsStreamedIn`: `pickup_is_streamed_in(player, pickup)`
+- `Pickup_IsValid`: `pickup_is_valid(pickup)`
+- `Pickup_SetModel`: `pickup_set_model(pickup, model, update)`
+- `Pickup_SetPos`: `pickup_set_pos(pickup, x, y, z, update)`
+- `Pickup_SetType`: `pickup_set_type(pickup, type, update)`
+- `Pickup_SetVirtualWorld`: `pickup_set_virtual_world(pickup, virtualworld)`
+- `Pickup_ShowForPlayer`: `pickup_show_for_player(player, pickup)`
+
+### Player (190)
+
+- `Player_AllowTeleport`: `player_allow_teleport(player, allow)`
+- `Player_AllowWeapons`: `player_allow_weapons(player, allow)`
+- `Player_ApplyAnimation`: `player_apply_animation(player, animlib, animname, delta, loop, lock_x, lock_y, freeze, time, sync)`
+- `Player_AreWeaponsAllowed`: `player_are_weapons_allowed(player)`
+- `Player_AttachCameraToObject`: `player_attach_camera_to_object(player, object)`
+- `Player_AttachCameraToPlayerObject`: `player_attach_camera_to_player_object(player, object)`
+- `Player_Ban`: `player_ban(player)`
+- `Player_BanEx`: `player_ban_ex(player, reason)`
+- `Player_CancelSelectTextDraw`: `player_cancel_select_text_draw(player)`
+- `Player_ClearAnimations`: `player_clear_animations(player, sync_type)`
+- `Player_ClearWorldBounds`: `player_clear_world_bounds(player)`
+- `Player_CreateExplosion`: `player_create_explosion(player, x, y, z, type, radius)`
+- `Player_DisableRemoteVehicleCollisions`: `player_disable_remote_vehicle_collisions(player, disable)`
+- `Player_EditAttachedObject`: `player_edit_attached_object(player, index)`
+- `Player_EnableCameraTarget`: `player_enable_camera_target(player, enable)`
+- `Player_EnableStuntBonus`: `player_enable_stunt_bonus(player, enable)`
+- `Player_ForceClassSelection`: `player_force_class_selection(player)`
+- `Player_FromID`: `player_from_id(playerid)`
+- `Player_GPCI`: `player_gpci(player)`
+- `Player_GetAnimationFlags`: `player_get_animation_flags(player)`
+- `Player_GetAnimationIndex`: `player_get_animation_index(player)`
+- `Player_GetAnimationName`: `player_get_animation_name(index)`
+- `Player_GetArmor`: `player_get_armor(player)`
+- `Player_GetAttachedObject`: `player_get_attached_object(player, index)`
+- `Player_GetBuildingsRemoved`: `player_get_buildings_removed(player)`
+- `Player_GetCameraAspectRatio`: `player_get_camera_aspect_ratio(player)`
+- `Player_GetCameraFrontVector`: `player_get_camera_front_vector(player)`
+- `Player_GetCameraMode`: `player_get_camera_mode(player)`
+- `Player_GetCameraPos`: `player_get_camera_pos(player)`
+- `Player_GetCameraTargetActor`: `player_get_camera_target_actor(player)`
+- `Player_GetCameraTargetObject`: `player_get_camera_target_object(player)`
+- `Player_GetCameraTargetPlayer`: `player_get_camera_target_player(player)`
+- `Player_GetCameraTargetPlayerObject`: `player_get_camera_target_player_object(player)`
+- `Player_GetCameraTargetVehicle`: `player_get_camera_target_vehicle(player)`
+- `Player_GetCameraZoom`: `player_get_camera_zoom(player)`
+- `Player_GetColor`: `player_get_color(player)`
+- `Player_GetCustomSkin`: `player_get_custom_skin(player)`
+- `Player_GetDefaultColor`: `player_get_default_color(player)`
+- `Player_GetDialog`: `player_get_dialog(player)`
+- `Player_GetDialogData`: `player_get_dialog_data(player)`
+- `Player_GetDistanceFromPoint`: `player_get_distance_from_point(player, x, y, z)`
+- `Player_GetDrunkLevel`: `player_get_drunk_level(player)`
+- `Player_GetFacingAngle`: `player_get_facing_angle(player)`
+- `Player_GetFightingStyle`: `player_get_fighting_style(player)`
+- `Player_GetGameText`: `player_get_game_text(player, style)`
+- `Player_GetGhostMode`: `player_get_ghost_mode(player)`
+- `Player_GetGravity`: `player_get_gravity(player)`
+- `Player_GetHealth`: `player_get_health(player)`
+- `Player_GetHydraReactorAngle`: `player_get_hydra_reactor_angle(player)`
+- `Player_GetID`: `player_get_id(player)`
+- `Player_GetInterior`: `player_get_interior(player)`
+- `Player_GetIp`: `player_get_ip(player)`
+- `Player_GetKeys`: `player_get_keys(player)`
+- `Player_GetLandingGearState`: `player_get_landing_gear_state(player)`
+- `Player_GetLastShotVectors`: `player_get_last_shot_vectors(player)`
+- `Player_GetMarkerForPlayer`: `player_get_marker_for_player(player, other)`
+- `Player_GetMenu`: `player_get_menu(player)`
+- `Player_GetMoney`: `player_get_money(player)`
+- `Player_GetName`: `player_get_name(player)`
+- `Player_GetNetworkStats`: `player_get_network_stats(player)`
+- `Player_GetPing`: `player_get_ping(player)`
+- `Player_GetPlayerAmmo`: `player_get_player_ammo(player)`
+- `Player_GetPlayerSpectateID`: `player_get_player_spectate_id(player)`
+- `Player_GetPos`: `player_get_pos(player)`
+- `Player_GetRawIp`: `player_get_raw_ip(player)`
+- `Player_GetRotationQuat`: `player_get_rotation_quat(player)`
+- `Player_GetScore`: `player_get_score(player)`
+- `Player_GetSirenState`: `player_get_siren_state(player)`
+- `Player_GetSkillLevel`: `player_get_skill_level(player, skill)`
+- `Player_GetSkin`: `player_get_skin(player)`
+- `Player_GetSpawnInfo`: `player_get_spawn_info(player)`
+- `Player_GetSpecialAction`: `player_get_special_action(player)`
+- `Player_GetSpectateType`: `player_get_spectate_type(player)`
+- `Player_GetState`: `player_get_state(player)`
+- `Player_GetSurfingObject`: `player_get_surfing_object(player)`
+- `Player_GetSurfingOffsets`: `player_get_surfing_offsets(player)`
+- `Player_GetSurfingPlayerObject`: `player_get_surfing_player_object(player)`
+- `Player_GetSurfingVehicle`: `player_get_surfing_vehicle(player)`
+- `Player_GetTargetActor`: `player_get_target_actor(player)`
+- `Player_GetTargetPlayer`: `player_get_target_player(player)`
+- `Player_GetTeam`: `player_get_team(player)`
+- `Player_GetTime`: `player_get_time(player)`
+- `Player_GetTrainSpeed`: `player_get_train_speed(player)`
+- `Player_GetVehicleID`: `player_get_vehicle_id(player)`
+- `Player_GetVehicleSeat`: `player_get_vehicle_seat(player)`
+- `Player_GetVelocity`: `player_get_velocity(player)`
+- `Player_GetVersion`: `player_get_version(player)`
+- `Player_GetVirtualWorld`: `player_get_virtual_world(player)`
+- `Player_GetWantedLevel`: `player_get_wanted_level(player)`
+- `Player_GetWeapon`: `player_get_weapon(player)`
+- `Player_GetWeaponData`: `player_get_weapon_data(player, slot)`
+- `Player_GetWeaponState`: `player_get_weapon_state(player)`
+- `Player_GetWeather`: `player_get_weather(player)`
+- `Player_GetWorldBounds`: `player_get_world_bounds(player)`
+- `Player_GetZAim`: `player_get_z_aim(player)`
+- `Player_GiveMoney`: `player_give_money(player, amount)`
+- `Player_GiveWeapon`: `player_give_weapon(player, weapon, ammo)`
+- `Player_HasClock`: `player_has_clock(player)`
+- `Player_HasGameText`: `player_has_game_text(player, style)`
+- `Player_HideGameText`: `player_hide_game_text(player, style)`
+- `Player_InterpolateCameraLookAt`: `player_interpolate_camera_look_at(player, from_x, from_y, from_z, to_x, to_y, to_z, time, cut)`
+- `Player_InterpolateCameraPos`: `player_interpolate_camera_pos(player, from_x, from_y, from_z, to_x, to_y, to_z, time, cut)`
+- `Player_IsAdmin`: `player_is_admin(player)`
+- `Player_IsCameraTargetEnabled`: `player_is_camera_target_enabled(player)`
+- `Player_IsControllable`: `player_is_controllable(player)`
+- `Player_IsCuffed`: `player_is_cuffed(player)`
+- `Player_IsInAnyVehicle`: `player_is_in_any_vehicle(player)`
+- `Player_IsInDriveByMode`: `player_is_in_drive_by_mode(player)`
+- `Player_IsInModShop`: `player_is_in_mod_shop(player)`
+- `Player_IsInRangeOfPoint`: `player_is_in_range_of_point(player, range, x, y, z)`
+- `Player_IsInVehicle`: `player_is_in_vehicle(player, target_vehicle)`
+- `Player_IsNPC`: `player_is_npc(player)`
+- `Player_IsPlayerAttachedObjectSlotUsed`: `player_is_player_attached_object_slot_used(player, index)`
+- `Player_IsPlayerUsingOfficialClient`: `player_is_player_using_official_client(player)`
+- `Player_IsSpawned`: `player_is_spawned(player)`
+- `Player_IsStreamedIn`: `player_is_streamed_in(player, other)`
+- `Player_IsTeleportAllowed`: `player_is_teleport_allowed(player)`
+- `Player_IsUsingOmp`: `player_is_using_omp(player)`
+- `Player_IsWidescreenToggled`: `player_is_widescreen_toggled(player)`
+- `Player_Kick`: `player_kick(player)`
+- `Player_NetStatsBytesReceived`: `player_net_stats_bytes_received(player)`
+- `Player_NetStatsBytesSent`: `player_net_stats_bytes_sent(player)`
+- `Player_NetStatsConnectionStatus`: `player_net_stats_connection_status(player)`
+- `Player_NetStatsGetConnectedTime`: `player_net_stats_get_connected_time(player)`
+- `Player_NetStatsGetIpPort`: `player_net_stats_get_ip_port(player)`
+- `Player_NetStatsMessagesReceived`: `player_net_stats_messages_received(player)`
+- `Player_NetStatsMessagesRecvPerSecond`: `player_net_stats_messages_recv_per_second(player)`
+- `Player_NetStatsMessagesSent`: `player_net_stats_messages_sent(player)`
+- `Player_NetStatsPacketLossPercent`: `player_net_stats_packet_loss_percent(player)`
+- `Player_PlayAudioStream`: `player_play_audio_stream(player, url, x, y, z, distance, use_pos)`
+- `Player_PlayCrimeReport`: `player_play_crime_report(player, suspect, crime)`
+- `Player_PlayGameSound`: `player_play_game_sound(player, sound, x, y, z)`
+- `Player_PutInVehicle`: `player_put_in_vehicle(player, vehicle, seat)`
+- `Player_RemoveAttachedObject`: `player_remove_attached_object(player, index)`
+- `Player_RemoveBuilding`: `player_remove_building(player, model, x, y, z, radius)`
+- `Player_RemoveFromVehicle`: `player_remove_from_vehicle(player, force)`
+- `Player_RemoveMapIcon`: `player_remove_map_icon(player, icon)`
+- `Player_RemoveWeapon`: `player_remove_weapon(player, weapon)`
+- `Player_ResetMoney`: `player_reset_money(player)`
+- `Player_ResetWeapons`: `player_reset_weapons(player)`
+- `Player_SelectTextDraw`: `player_select_text_draw(player, hover_colour)`
+- `Player_SendClientCheck`: `player_send_client_check(player, action_type, address, offset, count)`
+- `Player_SendClientMessage`: `player_send_client_message(player, color, text)`
+- `Player_SendDeathMessage`: `player_send_death_message(player, killer, killee, weapon)`
+- `Player_SendMessageToPlayer`: `player_send_message_to_player(player, sender, message)`
+- `Player_SetAdmin`: `player_set_admin(player, set)`
+- `Player_SetAmmo`: `player_set_ammo(player, id, ammo)`
+- `Player_SetArmedWeapon`: `player_set_armed_weapon(player, weapon)`
+- `Player_SetArmor`: `player_set_armor(player, armor)`
+- `Player_SetAttachedObject`: `player_set_attached_object(player, index, modelid, bone, offset_x, offset_y, offset_z, rotation_x, rotation_y, rotation_z, scale_x, scale_y, scale_z, materialcolor1, materialcolor2)`
+- `Player_SetCameraBehind`: `player_set_camera_behind(player)`
+- `Player_SetCameraLookAt`: `player_set_camera_look_at(player, x, y, z, cut_type)`
+- `Player_SetCameraPos`: `player_set_camera_pos(player, x, y, z)`
+- `Player_SetChatBubble`: `player_set_chat_bubble(player, text, color, drawdistance, expiretime)`
+- `Player_SetColor`: `player_set_color(player, color)`
+- `Player_SetDrunkLevel`: `player_set_drunk_level(player, level)`
+- `Player_SetFacingAngle`: `player_set_facing_angle(player, angle)`
+- `Player_SetFightingStyle`: `player_set_fighting_style(player, style)`
+- `Player_SetGravity`: `player_set_gravity(player, gravity)`
+- `Player_SetHealth`: `player_set_health(player, health)`
+- `Player_SetInterior`: `player_set_interior(player, interior)`
+- `Player_SetMapIcon`: `player_set_map_icon(player, icon_id, x, y, z, type, color, style)`
+- `Player_SetMarkerForPlayer`: `player_set_marker_for_player(player, other, color)`
+- `Player_SetName`: `player_set_name(player, name)`
+- `Player_SetPos`: `player_set_pos(player, x, y, z)`
+- `Player_SetPosFindZ`: `player_set_pos_find_z(player, x, y, z)`
+- `Player_SetScore`: `player_set_score(player, score)`
+- `Player_SetShopName`: `player_set_shop_name(player, name)`
+- `Player_SetSkillLevel`: `player_set_skill_level(player, weapon, level)`
+- `Player_SetSkin`: `player_set_skin(player, skin)`
+- `Player_SetSpawnInfo`: `player_set_spawn_info(player, team, skin, x, y, z, angle, weapon1, ammo1, weapon2, ammo2, weapon3, ammo3)`
+- `Player_SetSpecialAction`: `player_set_special_action(player, action)`
+- `Player_SetTeam`: `player_set_team(player, team)`
+- `Player_SetTime`: `player_set_time(player, hour, minute)`
+- `Player_SetVelocity`: `player_set_velocity(player, x, y, z)`
+- `Player_SetVirtualWorld`: `player_set_virtual_world(player, vw)`
+- `Player_SetWantedLevel`: `player_set_wanted_level(player, level)`
+- `Player_SetWeather`: `player_set_weather(player, weather)`
+- `Player_SetWorldBounds`: `player_set_world_bounds(player, x_max, x_min, y_max, y_min)`
+- `Player_ShowGameText`: `player_show_game_text(player, text, time, style)`
+- `Player_ShowNameTagForPlayer`: `player_show_name_tag_for_player(player, other, enable)`
+- `Player_Spawn`: `player_spawn(player)`
+- `Player_SpectatePlayer`: `player_spectate_player(player, target, mode)`
+- `Player_SpectateVehicle`: `player_spectate_vehicle(player, target, mode)`
+- `Player_StopAudioStream`: `player_stop_audio_stream(player)`
+- `Player_ToggleClock`: `player_toggle_clock(player, enable)`
+- `Player_ToggleControllable`: `player_toggle_controllable(player, enable)`
+- `Player_ToggleGhostMode`: `player_toggle_ghost_mode(player, toggle)`
+- `Player_ToggleSpectating`: `player_toggle_spectating(player, enable)`
+- `Player_ToggleWidescreen`: `player_toggle_widescreen(player, enable)`
+
+### PlayerObject (31)
+
+- `PlayerObject_AttachToObject`: `player_object_attach_to_object(player, object, attached_to, offset_x, offset_y, offset_z, rotation_x, rotation_y, rotation_z, sync_rotation)`
+- `PlayerObject_AttachToPlayer`: `player_object_attach_to_player(player, object, player_attached_to, offset_x, offset_y, offset_z, rotation_x, rotation_y, rotation_z)`
+- `PlayerObject_AttachToVehicle`: `player_object_attach_to_vehicle(player, object, vehicle, offset_x, offset_y, offset_z, rotation_x, rotation_y, rotation_z)`
+- `PlayerObject_BeginEditing`: `player_object_begin_editing(player, object)`
+- `PlayerObject_Create`: `player_object_create(player, modelid, x, y, z, rotation_x, rotation_y, rotation_z, draw_distance)`
+- `PlayerObject_Destroy`: `player_object_destroy(player, object)`
+- `PlayerObject_FromID`: `player_object_from_id(player, objectid)`
+- `PlayerObject_GetAttachedData`: `player_object_get_attached_data(player, object)`
+- `PlayerObject_GetAttachedOffset`: `player_object_get_attached_offset(player, object)`
+- `PlayerObject_GetDrawDistance`: `player_object_get_draw_distance(player, object)`
+- `PlayerObject_GetID`: `player_object_get_id(player, object)`
+- `PlayerObject_GetMaterial`: `player_object_get_material(player, object, material_index)`
+- `PlayerObject_GetMaterialText`: `player_object_get_material_text(player, object, material_index)`
+- `PlayerObject_GetModel`: `player_object_get_model(player, object)`
+- `PlayerObject_GetMoveSpeed`: `player_object_get_move_speed(player, object)`
+- `PlayerObject_GetMovingTargetPos`: `player_object_get_moving_target_pos(player, object)`
+- `PlayerObject_GetMovingTargetRot`: `player_object_get_moving_target_rot(player, object)`
+- `PlayerObject_GetPos`: `player_object_get_pos(player, object)`
+- `PlayerObject_GetRot`: `player_object_get_rot(player, object)`
+- `PlayerObject_GetSyncRotation`: `player_object_get_sync_rotation(player, object)`
+- `PlayerObject_IsMaterialSlotUsed`: `player_object_is_material_slot_used(player, object, material_index)`
+- `PlayerObject_IsMoving`: `player_object_is_moving(player, object)`
+- `PlayerObject_IsNoCameraCollision`: `player_object_is_no_camera_collision(player, object)`
+- `PlayerObject_IsValid`: `player_object_is_valid(player, object)`
+- `PlayerObject_Move`: `player_object_move(player, object, x, y, z, speed, rotation_x, rotation_y, rotation_z)`
+- `PlayerObject_SetMaterial`: `player_object_set_material(player, object, material_index, model_id, texture_library, texture_name, material_color)`
+- `PlayerObject_SetMaterialText`: `player_object_set_material_text(player, object, text, material_index, material_size, fontface, fontsize, bold, font_color, background_color, textalignment)`
+- `PlayerObject_SetNoCameraCollision`: `player_object_set_no_camera_collision(player, object)`
+- `PlayerObject_SetPos`: `player_object_set_pos(player, object, x, y, z)`
+- `PlayerObject_SetRot`: `player_object_set_rot(player, object, rotation_x, rotation_y, rotation_z)`
+- `PlayerObject_Stop`: `player_object_stop(player, object)`
+
+### PlayerTextDraw (42)
+
+- `PlayerTextDraw_Create`: `player_text_draw_create(player, x, y, text)`
+- `PlayerTextDraw_Destroy`: `player_text_draw_destroy(player, textdraw)`
+- `PlayerTextDraw_FromID`: `player_text_draw_from_id(player, textdrawid)`
+- `PlayerTextDraw_GetAlignment`: `player_text_draw_get_alignment(player, textdraw)`
+- `PlayerTextDraw_GetBackgroundColor`: `player_text_draw_get_background_color(player, textdraw)`
+- `PlayerTextDraw_GetBoxColor`: `player_text_draw_get_box_color(player, textdraw)`
+- `PlayerTextDraw_GetColor`: `player_text_draw_get_color(player, textdraw)`
+- `PlayerTextDraw_GetFont`: `player_text_draw_get_font(player, textdraw)`
+- `PlayerTextDraw_GetID`: `player_text_draw_get_id(player, textdraw)`
+- `PlayerTextDraw_GetLetterSize`: `player_text_draw_get_letter_size(player, textdraw)`
+- `PlayerTextDraw_GetOutline`: `player_text_draw_get_outline(player, textdraw)`
+- `PlayerTextDraw_GetPos`: `player_text_draw_get_pos(player, textdraw)`
+- `PlayerTextDraw_GetPreviewModel`: `player_text_draw_get_preview_model(player, textdraw)`
+- `PlayerTextDraw_GetPreviewRot`: `player_text_draw_get_preview_rot(player, textdraw)`
+- `PlayerTextDraw_GetPreviewVehColor`: `player_text_draw_get_preview_veh_color(player, textdraw)`
+- `PlayerTextDraw_GetShadow`: `player_text_draw_get_shadow(player, textdraw)`
+- `PlayerTextDraw_GetString`: `player_text_draw_get_string(player, textdraw)`
+- `PlayerTextDraw_GetTextSize`: `player_text_draw_get_text_size(player, textdraw)`
+- `PlayerTextDraw_Hide`: `player_text_draw_hide(player, textdraw)`
+- `PlayerTextDraw_IsBox`: `player_text_draw_is_box(player, textdraw)`
+- `PlayerTextDraw_IsProportional`: `player_text_draw_is_proportional(player, textdraw)`
+- `PlayerTextDraw_IsSelectable`: `player_text_draw_is_selectable(player, textdraw)`
+- `PlayerTextDraw_IsValid`: `player_text_draw_is_valid(player, textdraw)`
+- `PlayerTextDraw_IsVisible`: `player_text_draw_is_visible(player, textdraw)`
+- `PlayerTextDraw_SetAlignment`: `player_text_draw_set_alignment(player, textdraw, alignment)`
+- `PlayerTextDraw_SetBackgroundColor`: `player_text_draw_set_background_color(player, textdraw, color)`
+- `PlayerTextDraw_SetBoxColor`: `player_text_draw_set_box_color(player, textdraw, color)`
+- `PlayerTextDraw_SetColor`: `player_text_draw_set_color(player, textdraw, color)`
+- `PlayerTextDraw_SetFont`: `player_text_draw_set_font(player, textdraw, font)`
+- `PlayerTextDraw_SetLetterSize`: `player_text_draw_set_letter_size(player, textdraw, x, y)`
+- `PlayerTextDraw_SetOutline`: `player_text_draw_set_outline(player, textdraw, size)`
+- `PlayerTextDraw_SetPos`: `player_text_draw_set_pos(player, textdraw, x, y)`
+- `PlayerTextDraw_SetPreviewModel`: `player_text_draw_set_preview_model(player, textdraw, model)`
+- `PlayerTextDraw_SetPreviewRot`: `player_text_draw_set_preview_rot(player, textdraw, rx, ry, rz, zoom)`
+- `PlayerTextDraw_SetPreviewVehCol`: `player_text_draw_set_preview_veh_col(player, textdraw, color1, color2)`
+- `PlayerTextDraw_SetProportional`: `player_text_draw_set_proportional(player, textdraw, set)`
+- `PlayerTextDraw_SetSelectable`: `player_text_draw_set_selectable(player, textdraw, set)`
+- `PlayerTextDraw_SetShadow`: `player_text_draw_set_shadow(player, textdraw, size)`
+- `PlayerTextDraw_SetString`: `player_text_draw_set_string(player, textdraw, text)`
+- `PlayerTextDraw_SetTextSize`: `player_text_draw_set_text_size(player, textdraw, x, y)`
+- `PlayerTextDraw_Show`: `player_text_draw_show(player, textdraw)`
+- `PlayerTextDraw_UseBox`: `player_text_draw_use_box(player, textdraw, use)`
+
+### PlayerTextLabel (15)
+
+- `PlayerTextLabel_Create`: `player_text_label_create(player, text, color, x, y, z, draw_distance, attached_player, attached_vehicle, los)`
+- `PlayerTextLabel_Destroy`: `player_text_label_destroy(player, textlabel)`
+- `PlayerTextLabel_FromID`: `player_text_label_from_id(player, textlabelid)`
+- `PlayerTextLabel_GetAttachedData`: `player_text_label_get_attached_data(player, textlabel)`
+- `PlayerTextLabel_GetColor`: `player_text_label_get_color(player, textlabel)`
+- `PlayerTextLabel_GetDrawDistance`: `player_text_label_get_draw_distance(player, textlabel)`
+- `PlayerTextLabel_GetID`: `player_text_label_get_id(player, textlabel)`
+- `PlayerTextLabel_GetLOS`: `player_text_label_get_los(player, textlabel)`
+- `PlayerTextLabel_GetPos`: `player_text_label_get_pos(player, textlabel)`
+- `PlayerTextLabel_GetText`: `player_text_label_get_text(player, textlabel)`
+- `PlayerTextLabel_GetVirtualWorld`: `player_text_label_get_virtual_world(player)`
+- `PlayerTextLabel_IsValid`: `player_text_label_is_valid(player, textlabel)`
+- `PlayerTextLabel_SetDrawDistance`: `player_text_label_set_draw_distance(player, textlabel, distance)`
+- `PlayerTextLabel_SetLOS`: `player_text_label_set_los(player, textlabel, status)`
+- `PlayerTextLabel_UpdateText`: `player_text_label_update_text(player, textlabel, color, text)`
+
+### RaceCheckpoint (5)
+
+- `RaceCheckpoint_Disable`: `race_checkpoint_disable(player)`
+- `RaceCheckpoint_Get`: `race_checkpoint_get(player)`
+- `RaceCheckpoint_IsActive`: `race_checkpoint_is_active(player)`
+- `RaceCheckpoint_IsPlayerIn`: `race_checkpoint_is_player_in(player)`
+- `RaceCheckpoint_Set`: `race_checkpoint_set(player, type, x, y, z, next_x, next_y, next_z, radius)`
+
+### Recording (2)
+
+- `Recording_Start`: `recording_start(player, type, file)`
+- `Recording_Stop`: `recording_stop(player)`
+
+### TextDraw (45)
+
+- `TextDraw_Create`: `text_draw_create(x, y, text)`
+- `TextDraw_Destroy`: `text_draw_destroy(textdraw)`
+- `TextDraw_FromID`: `text_draw_from_id(textdrawid)`
+- `TextDraw_GetAlignment`: `text_draw_get_alignment(textdraw)`
+- `TextDraw_GetBackgroundColor`: `text_draw_get_background_color(textdraw)`
+- `TextDraw_GetBoxColor`: `text_draw_get_box_color(textdraw)`
+- `TextDraw_GetColor`: `text_draw_get_color(textdraw)`
+- `TextDraw_GetFont`: `text_draw_get_font(textdraw)`
+- `TextDraw_GetID`: `text_draw_get_id(textdraw)`
+- `TextDraw_GetLetterSize`: `text_draw_get_letter_size(textdraw)`
+- `TextDraw_GetOutline`: `text_draw_get_outline(textdraw)`
+- `TextDraw_GetPos`: `text_draw_get_pos(textdraw)`
+- `TextDraw_GetPreviewModel`: `text_draw_get_preview_model(textdraw)`
+- `TextDraw_GetPreviewRot`: `text_draw_get_preview_rot(textdraw)`
+- `TextDraw_GetPreviewVehColor`: `text_draw_get_preview_veh_color(textdraw)`
+- `TextDraw_GetShadow`: `text_draw_get_shadow(textdraw)`
+- `TextDraw_GetString`: `text_draw_get_string(textdraw)`
+- `TextDraw_GetTextSize`: `text_draw_get_text_size(textdraw)`
+- `TextDraw_HideForAll`: `text_draw_hide_for_all(textdraw)`
+- `TextDraw_HideForPlayer`: `text_draw_hide_for_player(player, textdraw)`
+- `TextDraw_IsBox`: `text_draw_is_box(textdraw)`
+- `TextDraw_IsProportional`: `text_draw_is_proportional(textdraw)`
+- `TextDraw_IsSelectable`: `text_draw_is_selectable(textdraw)`
+- `TextDraw_IsValid`: `text_draw_is_valid(textdraw)`
+- `TextDraw_IsVisibleForPlayer`: `text_draw_is_visible_for_player(player, textdraw)`
+- `TextDraw_SetAlignment`: `text_draw_set_alignment(textdraw, alignment)`
+- `TextDraw_SetBackgroundColor`: `text_draw_set_background_color(textdraw, color)`
+- `TextDraw_SetBoxColor`: `text_draw_set_box_color(textdraw, color)`
+- `TextDraw_SetColor`: `text_draw_set_color(textdraw, color)`
+- `TextDraw_SetFont`: `text_draw_set_font(textdraw, font)`
+- `TextDraw_SetLetterSize`: `text_draw_set_letter_size(textdraw, size_x, size_y)`
+- `TextDraw_SetOutline`: `text_draw_set_outline(textdraw, size)`
+- `TextDraw_SetPos`: `text_draw_set_pos(textdraw, x, y)`
+- `TextDraw_SetPreviewModel`: `text_draw_set_preview_model(textdraw, model)`
+- `TextDraw_SetPreviewRot`: `text_draw_set_preview_rot(textdraw, rotation_x, rotation_y, rotation_z, zoom)`
+- `TextDraw_SetPreviewVehCol`: `text_draw_set_preview_veh_col(textdraw, color1, color2)`
+- `TextDraw_SetProportional`: `text_draw_set_proportional(textdraw, set)`
+- `TextDraw_SetSelectable`: `text_draw_set_selectable(textdraw, set)`
+- `TextDraw_SetShadow`: `text_draw_set_shadow(textdraw, size)`
+- `TextDraw_SetString`: `text_draw_set_string(textdraw, text)`
+- `TextDraw_SetStringForPlayer`: `text_draw_set_string_for_player(textdraw, player, text)`
+- `TextDraw_SetTextSize`: `text_draw_set_text_size(textdraw, size_x, size_y)`
+- `TextDraw_SetUseBox`: `text_draw_set_use_box(textdraw, use)`
+- `TextDraw_ShowForAll`: `text_draw_show_for_all(textdraw)`
+- `TextDraw_ShowForPlayer`: `text_draw_show_for_player(player, textdraw)`
+
+### TextLabel (19)
+
+- `TextLabel_AttachToPlayer`: `text_label_attach_to_player(textlabel, player, offset_x, offset_y, offset_z)`
+- `TextLabel_AttachToVehicle`: `text_label_attach_to_vehicle(textlabel, vehicle, offset_x, offset_y, offset_z)`
+- `TextLabel_Create`: `text_label_create(text, color, x, y, z, draw_distance, virtual_world, los)`
+- `TextLabel_Destroy`: `text_label_destroy(textlabel)`
+- `TextLabel_FromID`: `text_label_from_id(textlabelid)`
+- `TextLabel_GetAttachedData`: `text_label_get_attached_data(textlabel)`
+- `TextLabel_GetColor`: `text_label_get_color(textlabel)`
+- `TextLabel_GetDrawDistance`: `text_label_get_draw_distance(textlabel)`
+- `TextLabel_GetID`: `text_label_get_id(textlabel)`
+- `TextLabel_GetLOS`: `text_label_get_los(textlabel)`
+- `TextLabel_GetPos`: `text_label_get_pos(textlabel)`
+- `TextLabel_GetText`: `text_label_get_text(textlabel)`
+- `TextLabel_GetVirtualWorld`: `text_label_get_virtual_world(textlabel)`
+- `TextLabel_IsStreamedIn`: `text_label_is_streamed_in(player, textlabel)`
+- `TextLabel_IsValid`: `text_label_is_valid(textlabel)`
+- `TextLabel_SetDrawDistance`: `text_label_set_draw_distance(textlabel, distance)`
+- `TextLabel_SetLOS`: `text_label_set_los(textlabel, status)`
+- `TextLabel_SetVirtualWorld`: `text_label_set_virtual_world(textlabel, world)`
+- `TextLabel_UpdateText`: `text_label_update_text(textlabel, color, text)`
+
+### Vehicle (82)
+
+- `Vehicle_AddComponent`: `vehicle_add_component(vehicle, componentid)`
+- `Vehicle_AddStatic`: `vehicle_add_static(modelid, x, y, z, angle, color1, color2)`
+- `Vehicle_AddStaticEx`: `vehicle_add_static_ex(modelid, x, y, z, angle, color1, color2, respawn_delay, add_siren)`
+- `Vehicle_AttachTrailer`: `vehicle_attach_trailer(trailer, vehicle)`
+- `Vehicle_CanHaveComponent`: `vehicle_can_have_component(modelid, componentid)`
+- `Vehicle_ChangeColor`: `vehicle_change_color(vehicle, color1, color2)`
+- `Vehicle_ChangePaintjob`: `vehicle_change_paintjob(vehicle, paintjobid)`
+- `Vehicle_ColorIndexToColor`: `vehicle_color_index_to_color(color_index, alpha)`
+- `Vehicle_CountOccupants`: `vehicle_count_occupants(vehicle)`
+- `Vehicle_Create`: `vehicle_create(modelid, x, y, z, rotation, color1, color2, respawn_delay, add_siren)`
+- `Vehicle_Destroy`: `vehicle_destroy(vehicle)`
+- `Vehicle_DetachTrailer`: `vehicle_detach_trailer(vehicle)`
+- `Vehicle_EnableFriendlyFire`: `vehicle_enable_friendly_fire()`
+- `Vehicle_FromID`: `vehicle_from_id(vehicleid)`
+- `Vehicle_GetCab`: `vehicle_get_cab(vehicle)`
+- `Vehicle_GetColor`: `vehicle_get_color(vehicle)`
+- `Vehicle_GetComponentInSlot`: `vehicle_get_component_in_slot(vehicle, slot)`
+- `Vehicle_GetComponentType`: `vehicle_get_component_type(componentid)`
+- `Vehicle_GetDamageStatus`: `vehicle_get_damage_status(vehicle)`
+- `Vehicle_GetDistanceFromPoint`: `vehicle_get_distance_from_point(vehicle, x, y, z)`
+- `Vehicle_GetDriver`: `vehicle_get_driver(vehicle)`
+- `Vehicle_GetHealth`: `vehicle_get_health(vehicle)`
+- `Vehicle_GetHydraReactorAngle`: `vehicle_get_hydra_reactor_angle(vehicle)`
+- `Vehicle_GetID`: `vehicle_get_id(vehicle)`
+- `Vehicle_GetInterior`: `vehicle_get_interior(vehicle)`
+- `Vehicle_GetLandingGearState`: `vehicle_get_landing_gear_state(vehicle)`
+- `Vehicle_GetLastDriver`: `vehicle_get_last_driver(vehicle)`
+- `Vehicle_GetMatrix`: `vehicle_get_matrix(vehicle)`
+- `Vehicle_GetMaxPassengerSeats`: `vehicle_get_max_passenger_seats(modelid)`
+- `Vehicle_GetModel`: `vehicle_get_model(vehicle)`
+- `Vehicle_GetModelCount`: `vehicle_get_model_count(modelid)`
+- `Vehicle_GetModelInfo`: `vehicle_get_model_info(vehiclemodel, infotype)`
+- `Vehicle_GetModelsUsed`: `vehicle_get_models_used()`
+- `Vehicle_GetNumberPlate`: `vehicle_get_number_plate(vehicle)`
+- `Vehicle_GetOccupant`: `vehicle_get_occupant(vehicle, seat)`
+- `Vehicle_GetOccupiedTick`: `vehicle_get_occupied_tick(vehicle)`
+- `Vehicle_GetPaintjob`: `vehicle_get_paintjob(vehicle)`
+- `Vehicle_GetParamsCarDoors`: `vehicle_get_params_car_doors(vehicle)`
+- `Vehicle_GetParamsCarWindows`: `vehicle_get_params_car_windows(vehicle)`
+- `Vehicle_GetParamsEx`: `vehicle_get_params_ex(vehicle)`
+- `Vehicle_GetParamsSirenState`: `vehicle_get_params_siren_state(vehicle)`
+- `Vehicle_GetPos`: `vehicle_get_pos(vehicle)`
+- `Vehicle_GetRandomColorPair`: `vehicle_get_random_color_pair(modelid)`
+- `Vehicle_GetRespawnDelay`: `vehicle_get_respawn_delay(vehicle)`
+- `Vehicle_GetRespawnTick`: `vehicle_get_respawn_tick(vehicle)`
+- `Vehicle_GetRotationQuat`: `vehicle_get_rotation_quat(vehicle)`
+- `Vehicle_GetSirenState`: `vehicle_get_siren_state(vehicle)`
+- `Vehicle_GetSpawnInfo`: `vehicle_get_spawn_info(vehicle)`
+- `Vehicle_GetTower`: `vehicle_get_tower(vehicle)`
+- `Vehicle_GetTrailer`: `vehicle_get_trailer(vehicle)`
+- `Vehicle_GetTrainSpeed`: `vehicle_get_train_speed(vehicle)`
+- `Vehicle_GetVelocity`: `vehicle_get_velocity(vehicle)`
+- `Vehicle_GetVirtualWorld`: `vehicle_get_virtual_world(vehicle)`
+- `Vehicle_GetZAngle`: `vehicle_get_z_angle(vehicle)`
+- `Vehicle_HasBeenOccupied`: `vehicle_has_been_occupied(vehicle)`
+- `Vehicle_IsDead`: `vehicle_is_dead(vehicle)`
+- `Vehicle_IsOccupied`: `vehicle_is_occupied(vehicle)`
+- `Vehicle_IsSirenEnabled`: `vehicle_is_siren_enabled(vehicle)`
+- `Vehicle_IsStreamedIn`: `vehicle_is_streamed_in(vehicle, player)`
+- `Vehicle_IsTrailerAttached`: `vehicle_is_trailer_attached(vehicle)`
+- `Vehicle_IsValid`: `vehicle_is_valid(vehicle)`
+- `Vehicle_LinkToInterior`: `vehicle_link_to_interior(vehicle, interiorid)`
+- `Vehicle_RemoveComponent`: `vehicle_remove_component(vehicle, componentid)`
+- `Vehicle_Repair`: `vehicle_repair(vehicle)`
+- `Vehicle_SetAngularVelocity`: `vehicle_set_angular_velocity(vehicle, x, y, z)`
+- `Vehicle_SetHealth`: `vehicle_set_health(vehicle, health)`
+- `Vehicle_SetNumberPlate`: `vehicle_set_number_plate(vehicle, number_plate)`
+- `Vehicle_SetParamsCarDoors`: `vehicle_set_params_car_doors(vehicle, front_left, front_right, rear_left, rear_right)`
+- `Vehicle_SetParamsCarWindows`: `vehicle_set_params_car_windows(vehicle, front_left, front_right, rear_left, rear_right)`
+- `Vehicle_SetParamsEx`: `vehicle_set_params_ex(vehicle, engine, lights, alarm, doors, bonnet, boot, objective)`
+- `Vehicle_SetParamsForPlayer`: `vehicle_set_params_for_player(vehicle, player, objective, doors)`
+- `Vehicle_SetParamsSirenState`: `vehicle_set_params_siren_state(vehicle, siren_state)`
+- `Vehicle_SetPos`: `vehicle_set_pos(vehicle, x, y, z)`
+- `Vehicle_SetRespawnDelay`: `vehicle_set_respawn_delay(vehicle, respawn_delay)`
+- `Vehicle_SetSpawnInfo`: `vehicle_set_spawn_info(vehicle, modelid, x, y, z, rotation, color1, color2, respawn_time, interior)`
+- `Vehicle_SetToRespawn`: `vehicle_set_to_respawn(vehicle)`
+- `Vehicle_SetVelocity`: `vehicle_set_velocity(vehicle, x, y, z)`
+- `Vehicle_SetVirtualWorld`: `vehicle_set_virtual_world(vehicle, virtual_world)`
+- `Vehicle_SetZAngle`: `vehicle_set_z_angle(vehicle, angle)`
+- `Vehicle_ToggleSirenEnabled`: `vehicle_toggle_siren_enabled(vehicle, status)`
+- `Vehicle_UpdateDamageStatus`: `vehicle_update_damage_status(vehicle, panels, doors, lights, tires)`
+- `Vehicle_UseManualEngineAndLights`: `vehicle_use_manual_engine_and_lights()`
+
+## Events
+
+- `onActorStreamIn`: `on_actor_stream_in(actor, for_player)`
+- `onActorStreamOut`: `on_actor_stream_out(actor, for_player)`
+- `onClientCheckResponse`: `on_client_check_response(player, action_type, address, result)`
+- `onConsoleText`: `on_console_text(command, parameters) -> bool`
+- `onDialogResponse`: `on_dialog_response(player, dialog_id, response, list_item, input_text)`
+- `onEnterExitModShop`: `on_enter_exit_mod_shop(player, enterexit, interior_id)`
+- `onIncomingConnection`: `on_incoming_connection(player, ip_address, port)`
+- `onNPCChangeNode`: `on_npc_change_node(npc, new_node_id, old_node_id) -> bool`
+- `onNPCCreate`: `on_npc_create(npc)`
+- `onNPCDeath`: `on_npc_death(npc, killer, reason)`
+- `onNPCDestroy`: `on_npc_destroy(npc)`
+- `onNPCFinishMove`: `on_npc_finish_move(npc)`
+- `onNPCFinishMovePath`: `on_npc_finish_move_path(npc, path_id)`
+- `onNPCFinishMovePathPoint`: `on_npc_finish_move_path_point(npc, path_id, point_id)`
+- `onNPCFinishNode`: `on_npc_finish_node(npc, node_id)`
+- `onNPCFinishNodePoint`: `on_npc_finish_node_point(npc, node_id, point_id)`
+- `onNPCGiveDamage`: `on_npc_give_damage(npc, damaged, damage, weapon, body_part) -> bool`
+- `onNPCPlaybackEnd`: `on_npc_playback_end(npc, record_id)`
+- `onNPCPlaybackStart`: `on_npc_playback_start(npc, record_id)`
+- `onNPCRespawn`: `on_npc_respawn(npc)`
+- `onNPCShotMissed`: `on_npc_shot_missed(npc, weapon, offset_x, offset_y, offset_z) -> bool`
+- `onNPCShotNPC`: `on_npc_shot_npc(npc, npc_target, weapon, offset_x, offset_y, offset_z) -> bool`
+- `onNPCShotObject`: `on_npc_shot_object(npc, object, weapon, offset_x, offset_y, offset_z) -> bool`
+- `onNPCShotPlayer`: `on_npc_shot_player(npc, player, weapon, offset_x, offset_y, offset_z) -> bool`
+- `onNPCShotPlayerObject`: `on_npc_shot_player_object(npc, player_object, weapon, offset_x, offset_y, offset_z) -> bool`
+- `onNPCShotVehicle`: `on_npc_shot_vehicle(npc, vehicle, weapon, offset_x, offset_y, offset_z) -> bool`
+- `onNPCSpawn`: `on_npc_spawn(npc)`
+- `onNPCTakeDamage`: `on_npc_take_damage(npc, damager, damage, weapon, body_part) -> bool`
+- `onNPCWeaponStateChange`: `on_npc_weapon_state_change(npc, new_state, old_state)`
+- `onObjectMove`: `on_object_move(object)`
+- `onPlayerCancelPlayerTextDrawSelection`: `on_player_cancel_player_text_draw_selection(player)`
+- `onPlayerCancelTextDrawSelection`: `on_player_cancel_text_draw_selection(player)`
+- `onPlayerClickGangZone`: `on_player_click_gang_zone(player, zone)`
+- `onPlayerClickMap`: `on_player_click_map(player, x, y, z)`
+- `onPlayerClickPlayer`: `on_player_click_player(player, clicked, source)`
+- `onPlayerClickPlayerTextDraw`: `on_player_click_player_text_draw(player, textdraw)`
+- `onPlayerClickTextDraw`: `on_player_click_text_draw(player, textdraw)`
+- `onPlayerCommandText`: `on_player_command_text(player, command) -> bool`
+- `onPlayerConnect`: `on_player_connect(player)`
+- `onPlayerDeath`: `on_player_death(player, killer, reason)`
+- `onPlayerDisconnect`: `on_player_disconnect(player, reason)`
+- `onPlayerEditAttachedObject`: `on_player_edit_attached_object(player, saved, index, model, bone, offset_x, offset_y, offset_z, rotation_x, rotation_y, rotation_z, scale_x, scale_y, scale_z)`
+- `onPlayerEditObject`: `on_player_edit_object(player, object, response, offset_x, offset_y, offset_z, rotation_x, rotation_y, rotation_z)`
+- `onPlayerEditPlayerObject`: `on_player_edit_player_object(player, object, response, offset_x, offset_y, offset_z, rotation_x, rotation_y, rotation_z)`
+- `onPlayerEnterCheckpoint`: `on_player_enter_checkpoint(player)`
+- `onPlayerEnterGangZone`: `on_player_enter_gang_zone(player, zone)`
+- `onPlayerEnterRaceCheckpoint`: `on_player_enter_race_checkpoint(player)`
+- `onPlayerEnterVehicle`: `on_player_enter_vehicle(player, vehicle, passenger)`
+- `onPlayerExitVehicle`: `on_player_exit_vehicle(player, vehicle)`
+- `onPlayerExitedMenu`: `on_player_exited_menu(player)`
+- `onPlayerFinishedDownloading`: `on_player_finished_downloading(player, vw)`
+- `onPlayerGiveDamage`: `on_player_give_damage(player, to, amount, weapon, bodypart)`
+- `onPlayerGiveDamageActor`: `on_player_give_damage_actor(player, actor, amount, weapon, part)`
+- `onPlayerInteriorChange`: `on_player_interior_change(player, new_interior, old_interior)`
+- `onPlayerKeyStateChange`: `on_player_key_state_change(player, new_keys, old_keys)`
+- `onPlayerLeaveCheckpoint`: `on_player_leave_checkpoint(player)`
+- `onPlayerLeaveGangZone`: `on_player_leave_gang_zone(player, zone)`
+- `onPlayerLeaveRaceCheckpoint`: `on_player_leave_race_checkpoint(player)`
+- `onPlayerObjectMove`: `on_player_object_move(player, object)`
+- `onPlayerPickUpPickup`: `on_player_pick_up_pickup(player, pickup)`
+- `onPlayerRequestClass`: `on_player_request_class(player, class_id) -> bool`
+- `onPlayerRequestDownload`: `on_player_request_download(player, type, checksum)`
+- `onPlayerRequestSpawn`: `on_player_request_spawn(player) -> bool`
+- `onPlayerSelectObject`: `on_player_select_object(player, object, model, x, y, z)`
+- `onPlayerSelectPlayerObject`: `on_player_select_player_object(player, object, model, x, y, z)`
+- `onPlayerSelectedMenuRow`: `on_player_selected_menu_row(player, row)`
+- `onPlayerShotMissed`: `on_player_shot_missed(player, weapon, x, y, z) -> bool`
+- `onPlayerShotObject`: `on_player_shot_object(player, target, weapon, x, y, z) -> bool`
+- `onPlayerShotPlayer`: `on_player_shot_player(player, target, weapon, x, y, z) -> bool`
+- `onPlayerShotPlayerObject`: `on_player_shot_player_object(player, target, weapon, x, y, z) -> bool`
+- `onPlayerShotVehicle`: `on_player_shot_vehicle(player, target, weapon, x, y, z) -> bool`
+- `onPlayerSpawn`: `on_player_spawn(player)`
+- `onPlayerStateChange`: `on_player_state_change(player, new_state, old_state)`
+- `onPlayerStreamIn`: `on_player_stream_in(player, for_player)`
+- `onPlayerStreamOut`: `on_player_stream_out(player, for_player)`
+- `onPlayerTakeDamage`: `on_player_take_damage(player, from_, amount, weapon, bodypart)`
+- `onPlayerText`: `on_player_text(player, text) -> bool`
+- `onPlayerUpdate`: `on_player_update(player) -> bool`
+- `onRconLoginAttempt`: `on_rcon_login_attempt(address, password, success) -> bool`
+- `onTick`: `on_tick(elapsed)`
+- `onTrailerUpdate`: `on_trailer_update(player, trailer) -> bool`
+- `onUnoccupiedVehicleUpdate`: `on_unoccupied_vehicle_update(vehicle, player, seat, pos_x, pos_y, pos_z, velocity_x, velocity_y, velocity_z) -> bool`
+- `onVehicleDamageStatusUpdate`: `on_vehicle_damage_status_update(vehicle, player)`
+- `onVehicleDeath`: `on_vehicle_death(vehicle, player)`
+- `onVehicleMod`: `on_vehicle_mod(player, vehicle, component) -> bool`
+- `onVehiclePaintJob`: `on_vehicle_paint_job(player, vehicle, paint_job) -> bool`
+- `onVehicleRespray`: `on_vehicle_respray(player, vehicle, color1, color2) -> bool`
+- `onVehicleSirenStateChange`: `on_vehicle_siren_state_change(player, vehicle, siren_state) -> bool`
+- `onVehicleSpawn`: `on_vehicle_spawn(vehicle)`
+- `onVehicleStreamIn`: `on_vehicle_stream_in(vehicle, player)`
+- `onVehicleStreamOut`: `on_vehicle_stream_out(vehicle, player)`
+
