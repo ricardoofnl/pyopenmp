@@ -49,9 +49,7 @@ cp -r components/* /path/to/server/Server/components/
 
 The zip's `components/` holds `pyopenmp_native.so`, `pyopenmp_native.dll`, and the
 `pyopenmp/` runtime package. Then add your `gamemodes/` package at the server
-root. Releases are produced by CI — run the **Release** workflow with a version
-number, or the **Build** workflow to just compile the component.
-
+root.
 ## Important: 32-bit Python
 
 open.mp is **32-bit**, so the embedded interpreter and `$CAPI` are 32-bit. Use a
