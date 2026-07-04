@@ -1,0 +1,57 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Release version, e.g. 0.1.0"
+        required: true
+      python_version:
+        description: "32-bit Python version to build against"
+        required: false
+        default: "3.12"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    uses: ./.github/workflows/build.yml
+    with:
+      python_version: ${{ inputs.python_version }}
+
+  package:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download Linux build
+        uses: actions/download-artifact@v4
+        with:
+          name: linux
+          path: staging
+      - name: Download Windows build
+        uses: actions/download-artifact@v4
+        with:
+          name: windows
+          path: staging
+      - name: Assemble components/
+        run: |
+          rm -rf pkg
+          mkdir -p pkg/components
+          cp staging/pyopenmp_native.so pkg/components/
+          cp staging/pyopenmp_native.dll pkg/components/
+          cp -r pyopenmp pkg/components/pyopenmp
+          find pkg/components/pyopenmp -name __pycache__ -type d -prune -exec rm -rf {} +
+      - name: Zip
+        run: |
+          cd pkg
+          zip -r "../pyopenmp-${{ inputs.version }}.zip" components
+      - name: Create release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "v${{ inputs.version }}" \
+            "pyopenmp-${{ inputs.version }}.zip" \
+            --title "pyopenmp v${{ inputs.version }}" \
+            --generate-notes

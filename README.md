@@ -35,6 +35,15 @@ def commands(player: Player, text: str) -> bool:
 
 Every generated native and event is listed in [`GENERATED.md`](GENERATED.md).
 
+## Releases
+
+CI builds the native component for Linux and Windows on demand. Run the **Build**
+workflow (Actions tab) to build both, or the **Release** workflow with a version
+number to publish a `pyopenmp-<version>.zip`. The zip contains a `components/`
+folder with `pyopenmp_native.so`, `pyopenmp_native.dll`, and the `pyopenmp/`
+runtime package — copy that `components/` content into your server, then add your
+`gamemodes/` package at the server root.
+
 ## Important: 32-bit Python
 
 open.mp is **32-bit**, so the embedded interpreter and `$CAPI` are 32-bit. Use a

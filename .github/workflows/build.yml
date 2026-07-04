@@ -1,0 +1,49 @@
+name: Build
+
+on:
+  workflow_dispatch:
+    inputs:
+      python_version:
+        description: "32-bit Python version to build against"
+        required: false
+        default: "3.12"
+  workflow_call:
+    inputs:
+      python_version:
+        required: false
+        type: string
+        default: "3.12"
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build 32-bit component (Linux)
+        run: |
+          docker run --rm -v "$PWD":/src -w /src \
+            "i386/python:${{ inputs.python_version }}-slim" \
+            bash -c "apt-get update && apt-get install -y --no-install-recommends gcc file && ./native/build.sh"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: linux
+          path: dist/components/pyopenmp_native.so
+          if-no-files-found: error
+
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ inputs.python_version }}
+          architecture: x86
+      - name: Configure
+        run: cmake -S native -B native/build -A Win32 -DPython3_ROOT_DIR="$env:pythonLocation" -DPython3_FIND_REGISTRY=NEVER
+      - name: Build
+        run: cmake --build native/build --config Release
+      - uses: actions/upload-artifact@v4
+        with:
+          name: windows
+          path: native/build/Release/pyopenmp_native.dll
+          if-no-files-found: error
