@@ -44,16 +44,17 @@ The output is `pyopenmp.so` / `pyopenmp.dll`.
 
 ```
 Server/
-├── components/
-│   ├── $CAPI.so         # shipped by the server
-│   └── pyopenmp.so      # the native component you built
-├── pyopenmp/            # the Python package (copied from this repo)
-└── gamemode.py          # your gamemode
+└── components/
+    ├── $CAPI.so         (shipped by the server)
+    ├── pyopenmp.so      (the native component you built)
+    ├── pyopenmp/        (the Python package from this repo)
+    └── gamemode.py      (your gamemode)
 ```
 
-`pyopenmp/` and `gamemode.py` go in the **server root** (the working directory
-`omp-server` runs from), because the component adds that directory to
-`sys.path`.
+Keep `pyopenmp/` and `gamemode.py` **inside `components/`**, next to
+`pyopenmp.so`. The component adds its own directory to `sys.path`, so this works
+regardless of which directory the server is launched from (including runners
+like `sampctl`).
 
 ## Run and verify
 

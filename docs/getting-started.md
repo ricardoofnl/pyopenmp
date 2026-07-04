@@ -48,11 +48,15 @@ This produces `pyopenmp.so` (Linux) / `pyopenmp.dll` (Windows).
 
 ## 4. Deploy
 
-Into your server:
+Put all three into your server's `components/` folder:
 
-- `pyopenmp.so` → `Server/components/`
-- the `pyopenmp/` package folder → server root (so it is importable)
-- your `gamemode.py` → server root
+- `pyopenmp.so` (the component you built)
+- the `pyopenmp/` package folder
+- your `gamemode.py`
+
+The component adds its own folder to `sys.path`, so keeping the package and
+gamemode next to it works no matter which directory the server is launched from
+(including runners like `sampctl`).
 
 ## 5. Run
 
