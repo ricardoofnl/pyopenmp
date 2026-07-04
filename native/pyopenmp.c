@@ -1,18 +1,109 @@
 #include <Python.h>
+#include <stdlib.h>
+#include <string.h>
 
 #if defined(_WIN32)
+#include <windows.h>
 #define PYOPENMP_EXPORT __declspec(dllexport)
+#define PATH_SEP '\\'
 #else
+#include <dlfcn.h>
+#include <limits.h>
 #define PYOPENMP_EXPORT __attribute__((visibility("default")))
+#define PATH_SEP '/'
 #endif
 
 static int g_started = 0;
 static PyThreadState* g_saved = NULL;
 
+static void self_path(char* out, size_t n)
+{
+    out[0] = 0;
+#if defined(_WIN32)
+    HMODULE mod = NULL;
+    if (GetModuleHandleExA(
+            GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS
+                | GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT,
+            (LPCSTR)&self_path, &mod))
+    {
+        GetModuleFileNameA(mod, out, (DWORD)n);
+    }
+#else
+    Dl_info info;
+    if (dladdr((void*)&self_path, &info) && info.dli_fname)
+    {
+        char resolved[PATH_MAX];
+        if (realpath(info.dli_fname, resolved))
+        {
+            strncpy(out, resolved, n - 1);
+        }
+        else
+        {
+            strncpy(out, info.dli_fname, n - 1);
+        }
+        out[n - 1] = 0;
+    }
+#endif
+}
+
+static void server_root(char* out, size_t n)
+{
+    self_path(out, n);
+    if (!out[0])
+    {
+        return;
+    }
+    char* p = strrchr(out, PATH_SEP);
+    if (!p)
+    {
+        out[0] = 0;
+        return;
+    }
+    *p = 0;
+    p = strrchr(out, PATH_SEP);
+    if (!p)
+    {
+        out[0] = 0;
+        return;
+    }
+    *p = 0;
+}
+
+static void export_root(const char* root)
+{
+    if (!root[0])
+    {
+        return;
+    }
+#if defined(_WIN32)
+    _putenv_s("PYOPENMP_ROOT", root);
+#else
+    setenv("PYOPENMP_ROOT", root, 1);
+#endif
+}
+
+static void setup_paths(const char* root)
+{
+    if (root[0])
+    {
+        PyObject* sys_path = PySys_GetObject("path");
+        if (sys_path)
+        {
+            PyObject* entry = PyUnicode_FromString(root);
+            if (entry)
+            {
+                PyList_Insert(sys_path, 0, entry);
+                Py_DECREF(entry);
+            }
+        }
+    }
+    PyRun_SimpleString(
+        "import os, sys\n_cwd = os.getcwd()\n"
+        "(_cwd in sys.path) or sys.path.insert(0, _cwd)\n");
+}
+
 static void run_bootstrap(void)
 {
-    PyRun_SimpleString("import sys, os\nsys.path.insert(0, os.getcwd())\n");
-
     PyObject* module = PyImport_ImportModule("pyopenmp._bootstrap");
     if (!module)
     {
@@ -50,7 +141,12 @@ PYOPENMP_EXPORT void ComponentEntryPoint(void)
     }
     g_started = 1;
 
+    char root[4096];
+    server_root(root, sizeof(root));
+    export_root(root);
+
     Py_Initialize();
+    setup_paths(root);
     run_bootstrap();
     g_saved = PyEval_SaveThread();
 }

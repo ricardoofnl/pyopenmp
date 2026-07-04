@@ -39,7 +39,8 @@ _lib = None
 
 def _default_path():
     name = "$CAPI.dll" if sys.platform.startswith("win") else "$CAPI.so"
-    return os.path.join("components", name)
+    root = os.environ.get("PYOPENMP_ROOT", os.getcwd())
+    return os.path.join(root, "components", name)
 
 
 def load():
