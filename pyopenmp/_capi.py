@@ -85,3 +85,32 @@ class OutBuffer:
 
     def value(self):
         return self._buf.raw[: self.raw.len].decode("utf-8", "replace")
+
+
+def _deref(lst, index, ctype):
+    return ctypes.cast(
+        ctypes.c_void_p(lst[index]), ctypes.POINTER(ctype)
+    ).contents.value
+
+
+def deref_handle(lst, index):
+    return _deref(lst, index, ctypes.c_void_p)
+
+
+def deref_int(lst, index):
+    return _deref(lst, index, ctypes.c_int)
+
+
+def deref_float(lst, index):
+    return _deref(lst, index, ctypes.c_float)
+
+
+def deref_bool(lst, index):
+    return _deref(lst, index, ctypes.c_bool)
+
+
+def deref_view(lst, index):
+    view = ctypes.cast(
+        ctypes.c_void_p(lst[index]), ctypes.POINTER(CAPIStringView)
+    ).contents
+    return read_view(view)
