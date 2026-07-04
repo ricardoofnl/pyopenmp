@@ -2,8 +2,8 @@
 
 ## Why 32-bit
 
-open.mp runs as **32-bit**, so the CPython the component embeds — and any Python
-that `ctypes`-loads `$CAPI` — must also be **32-bit**. Use a 32-bit Python 3.x
+open.mp runs as **32-bit**, so the CPython the component embeds (and any Python
+that `ctypes`-loads `$CAPI`) must also be **32-bit**. Use a 32-bit Python 3.x
 build (PySAMP pins 3.10.4 for the same reason).
 
 ## Build the native component
@@ -63,14 +63,14 @@ cd /path/to/server/Server
 
 ## Troubleshooting
 
-- **`ModuleNotFoundError: pyopenmp` / `pyopenmp._bootstrap`** — the `pyopenmp/`
+- **`ModuleNotFoundError: pyopenmp` / `pyopenmp._bootstrap`**: the `pyopenmp/`
   runtime folder must sit next to `pyopenmp_native.so` inside `components/`.
-- **`ModuleNotFoundError: gamemodes`** — your `gamemodes/` package must sit at the
+- **`ModuleNotFoundError: gamemodes`**: your `gamemodes/` package must sit at the
   server root (next to `components/`) and contain an `__init__.py`.
-- **`undefined symbol: PyExc_...` when importing `ctypes`** — Python extension
+- **`undefined symbol: PyExc_...` when importing `ctypes`**: Python extension
   modules could not resolve libpython. The component loads libpython with
   `RTLD_GLOBAL` to avoid this; make sure you are running the latest `pyopenmp_native.so`.
-- **Interpreter/segfault on load** — architecture mismatch. The component,
+- **Interpreter/segfault on load**: architecture mismatch. The component,
   its embedded Python, and `$CAPI` must all be 32-bit.
-- **Python cannot find its standard library** — set `PYTHONHOME` to your 32-bit
+- **Python cannot find its standard library**: set `PYTHONHOME` to your 32-bit
   Python installation.

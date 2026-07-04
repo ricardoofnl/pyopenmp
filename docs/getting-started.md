@@ -5,14 +5,14 @@
 - **32-bit Python 3.x** (open.mp is 32-bit, so the embedded interpreter must be too).
 - An **open.mp server** (download from [open.mp](https://open.mp)); it already ships
   the `$CAPI` component that pyopenmp calls into.
-- **CMake** and a **C compiler** — only if you build the native component yourself
+- **CMake** and a **C compiler**, only if you build the native component yourself
   (option B below).
 
 ## 2. Write a gamemode
 
 Your gamemode is a Python package in a `gamemodes/` folder at the server root
 (next to `components/`, not inside it). Its `gamemodes/__init__.py` is the entry
-point — it is imported once on startup.
+point. It is imported once on startup.
 
 `gamemodes/__init__.py`:
 
@@ -53,7 +53,7 @@ Import other files as normal Python modules under the `gamemodes` package. For
 
 ## 3. Get the runtime (a `components/` folder)
 
-### Option A — download a prebuilt release (recommended)
+### Option A: download a prebuilt release (recommended)
 
 Grab the latest `pyopenmp-<version>.zip` from the
 [latest release](https://github.com/ricardoofnl/pyopenmp/releases/latest). It
@@ -73,7 +73,7 @@ the unzipped `components/` files into `Server/components/` the same way.
 Pick the release whose Python version matches your 32-bit Python (or run the
 **Release** workflow with your own `python_version`).
 
-### Option B — build it yourself
+### Option B: build it yourself
 
 The one native piece embeds CPython. Build it once (see
 [`testing.md`](testing.md) for the 32-bit details):
