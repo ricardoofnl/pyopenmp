@@ -27,11 +27,11 @@ def commands(player: Player, text: str) -> bool:
 
 ## Layout
 
-- `native/` — minimal C component that embeds CPython and starts your gamemode.
-- `pyopenmp/` — the Python package you copy to the server: entities, events, colors, and the generated bindings.
-- `tools/codegen.py` — generates the ctypes bindings from `api.json` / `events.json`.
-- `examples/gamemodes/` — example gamemode package (with a `core/` submodule).
-- `third_party/open.mp-capi/` — vendored C-API specs (MPL-2.0).
+- `native/`: minimal C component that embeds CPython and starts your gamemode.
+- `pyopenmp/`: the Python package you copy to the server: entities, events, colors, and the generated bindings.
+- `tools/codegen.py`: generates the ctypes bindings from `api.json` / `events.json`.
+- `examples/gamemodes/`: example gamemode package (with a `core/` submodule).
+- `third_party/open.mp-capi/`: vendored C-API specs (MPL-2.0).
 
 Every generated native and event is listed in [`GENERATED.md`](GENERATED.md).
 
@@ -39,7 +39,7 @@ Every generated native and event is listed in [`GENERATED.md`](GENERATED.md).
 
 Download the latest [`pyopenmp-<version>.zip`](https://github.com/ricardoofnl/pyopenmp/releases/latest)
 and copy the `components/` files it contains straight into your server's
-`components/` folder — no build step needed:
+`components/` folder, no build step needed:
 
 ```sh
 gh release download --repo ricardoofnl/pyopenmp --pattern 'pyopenmp-*.zip'
