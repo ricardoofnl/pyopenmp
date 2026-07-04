@@ -42,22 +42,13 @@ The output is `pyopenmp_native.so` / `pyopenmp_native.dll`.
 
 ## Deploy
 
-```text
-Server/
-├── components/
-│   ├── $CAPI.so            (shipped by the server)
-│   ├── pyopenmp_native.so  (the native component you built)
-│   └── pyopenmp/           (the runtime package from this repo)
-└── gamemode/               (your gamemode package)
-    ├── __init__.py
-    └── core/...
-```
+Keep `pyopenmp_native.so` and the `pyopenmp/` runtime package inside
+`components/`. Put your `gamemodes/` package at the server root, next to
+`components/`. The `$CAPI` component is already shipped by the server.
 
-Keep `pyopenmp_native.so` and the `pyopenmp/` runtime package **inside
-`components/`**. Put your `gamemode/` package at the **server root**, next to
-`components/`. The component adds both the server root and `components/` to
-`sys.path`, so this works regardless of which directory the server is launched
-from (including runners like `sampctl`).
+The component adds both the server root and `components/` to `sys.path`, so this
+works regardless of which directory the server is launched from (including
+runners like `sampctl`).
 
 ## Run and verify
 
@@ -74,7 +65,7 @@ cd /path/to/server/Server
 
 - **`ModuleNotFoundError: pyopenmp` / `pyopenmp._bootstrap`** — the `pyopenmp/`
   runtime folder must sit next to `pyopenmp_native.so` inside `components/`.
-- **`ModuleNotFoundError: gamemode`** — your `gamemode/` package must sit at the
+- **`ModuleNotFoundError: gamemodes`** — your `gamemodes/` package must sit at the
   server root (next to `components/`) and contain an `__init__.py`.
 - **`undefined symbol: PyExc_...` when importing `ctypes`** — Python extension
   modules could not resolve libpython. The component loads libpython with

@@ -9,24 +9,16 @@
 
 ## 2. Write a gamemode
 
-Your gamemode is a Python **package** in a `gamemode/` folder at the server root
-(next to `components/`, not inside it). The package's `__init__.py` is the entry
-point — it is imported once on startup:
+Your gamemode is a Python package in a `gamemodes/` folder at the server root
+(next to `components/`, not inside it). Its `gamemodes/__init__.py` is the entry
+point — it is imported once on startup.
 
-```text
-gamemode/
-├── __init__.py       <- entry point (loaded automatically)
-└── core/
-    ├── __init__.py
-    └── core.py
-```
-
-`gamemode/__init__.py`:
+`gamemodes/__init__.py`:
 
 ```python
 from pyopenmp import Player, colors, on_player_connect, on_player_command_text
 
-from gamemode.core import core
+from gamemodes.core import core
 
 
 @on_player_connect
@@ -47,24 +39,16 @@ Functions not tied to an entity live in `pyopenmp.generated.natives`
 
 ### Splitting the gamemode into multiple files
 
-Only the `gamemode` package's `__init__.py` is loaded automatically — **not**
-every `.py` file in the folder. Extra modules run only when something imports
-them, so importing them from `__init__.py` (directly or transitively) is what
-"registers" their handlers. A handler decorated with `@on_...` in a file that is
-never imported will never fire.
+Only `gamemodes/__init__.py` is imported automatically, not every `.py` file in
+the folder. Other modules run when something imports them, so import them from
+`__init__.py` (directly or indirectly) to activate their handlers. A handler in
+a file nobody imports never fires.
 
-Import other files with normal Python imports rooted at the `gamemode` package.
-For `gamemode/core/core.py`:
-
-```python
-from gamemode.core import core     # then call core.handle_command(...)
-# or
-from gamemode.core.core import handle_command
-```
-
-Each subfolder needs an `__init__.py` (it can be empty) to be an importable
-subpackage. Relative imports work too — inside `gamemode/__init__.py` you can
-write `from .core import core`.
+Import other files as normal Python modules under the `gamemodes` package. For
+`gamemodes/core/core.py`, use `from gamemodes.core import core` or
+`from gamemodes.core.core import handle_command`. Each subfolder needs an
+`__init__.py` (it can be empty). Relative imports work too, e.g.
+`from .core import core` inside `gamemodes/__init__.py`.
 
 ## 3. Build the native component
 
@@ -80,20 +64,9 @@ This produces `pyopenmp_native.so` (Linux) / `pyopenmp_native.dll` (Windows).
 
 ## 4. Deploy
 
-```text
-Server/
-├── components/
-│   ├── $CAPI.so            (shipped by the server)
-│   ├── pyopenmp_native.so  (the component you built)
-│   └── pyopenmp/           (the runtime package from this repo)
-└── gamemode/               (your gamemode package)
-    ├── __init__.py
-    └── core/...
-```
-
-- `pyopenmp_native.so` and the `pyopenmp/` runtime package go **inside**
-  `components/`.
-- Your `gamemode/` package goes at the **server root**, next to `components/`.
+Put `pyopenmp_native.so` and the `pyopenmp/` runtime package inside the server's
+`components/` folder. Put your `gamemodes/` package at the server root, next to
+`components/`. (The `$CAPI` component is already shipped by the server.)
 
 The component puts both the server root and `components/` on `sys.path`, so this
 works no matter which directory the server is launched from (including runners
@@ -106,11 +79,11 @@ cd /path/to/server/Server
 ./omp-server
 ```
 
-On startup the component boots Python and imports the `gamemode` package.
+On startup the component boots Python and imports the `gamemodes` package.
 Connect a client and you should see the welcome message.
 
 Set `PYOPENMP_GAMEMODE` to import a different package/module name (default
-`gamemode`).
+`gamemodes`).
 
 ## Coverage
 

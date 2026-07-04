@@ -63,7 +63,7 @@ def _on_free():
 
 
 def _load_gamemode():
-    module = os.environ.get("PYOPENMP_GAMEMODE", "gamemode")
+    module = os.environ.get("PYOPENMP_GAMEMODE", "gamemodes")
     try:
         importlib.import_module(module)
     except Exception:

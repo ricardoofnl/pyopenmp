@@ -6,7 +6,7 @@ from pyopenmp import (
     on_player_spawn,
 )
 
-from gamemode.core import core
+from gamemodes.core import core
 
 
 @on_player_connect

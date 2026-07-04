@@ -32,7 +32,7 @@ def commands(player: Player, text: str) -> bool:
 | `native/` | Minimal C component that embeds CPython and starts your gamemode. |
 | `pyopenmp/` | The Python package you copy to the server: entities, events, colors, and the generated bindings. |
 | `tools/codegen.py` | Generates the ctypes bindings from `api.json` / `events.json`. |
-| `examples/gamemode.py` | Example gamemode. |
+| `examples/gamemodes/` | Example gamemode package (with a `core/` submodule). |
 | `third_party/open.mp-capi/` | Vendored C-API specs (MPL-2.0). |
 
 Every generated native and event is listed in [`GENERATED.md`](GENERATED.md).
